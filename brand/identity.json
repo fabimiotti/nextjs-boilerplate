@@ -1,0 +1,63 @@
+{
+  "brand": {
+    "name": "Fabi Miotti",
+    "tagline": "Consultoria Online",
+    "credential": "CREF 063792-G/SP",
+    "industry": "Educação Física / Consultoria fitness online",
+    "logo": {
+      "path": "/brand/logo.png",
+      "background": "#FBF9F5",
+      "notes": "Logo em wordmark, sem símbolo/ícone separado. Fundo transparente não disponível — usar sobre fundo claro (#FBF9F5 ou branco)."
+    }
+  },
+  "colors": {
+    "background": {
+      "hex": "#FBF9F5",
+      "rgb": "rgb(251, 249, 245)",
+      "usage": "Fundo principal, cor de base (cream/off-white)"
+    },
+    "ink": {
+      "hex": "#0F0F0D",
+      "rgb": "rgb(15, 15, 13)",
+      "usage": "Texto principal, título/nome da marca (quase preto)"
+    },
+    "forestGreen": {
+      "hex": "#526640",
+      "rgb": "rgb(82, 102, 64)",
+      "usage": "Cor secundária, subtítulo/tagline (\"CONSULTORIA ONLINE\")"
+    },
+    "sageGreen": {
+      "hex": "#7A9160",
+      "rgb": "rgb(122, 145, 96)",
+      "usage": "Cor terciária/detalhe, texto de apoio (credencial CREF), metade direita do divisor"
+    },
+    "terracotta": {
+      "hex": "#C4855B",
+      "rgb": "rgb(196, 133, 91)",
+      "usage": "Cor de destaque/acento, metade esquerda do divisor (gradiente terracota → verde)"
+    }
+  },
+  "gradients": {
+    "divider": {
+      "from": "#C4855B",
+      "to": "#7A9160",
+      "usage": "Linha divisória horizontal entre nome e tagline"
+    }
+  },
+  "typography": {
+    "display": {
+      "role": "Nome da marca / títulos grandes",
+      "style": "Serifa clássica, alto contraste entre traços finos e grossos",
+      "suggestedFonts": ["Playfair Display", "Cormorant Garamond", "Lora"]
+    },
+    "label": {
+      "role": "Tagline, rótulos, textos em caixa alta",
+      "style": "Sans-serif geométrica, letter-spacing largo, caixa alta",
+      "suggestedFonts": ["Montserrat", "Poppins", "Raleway"]
+    }
+  },
+  "voice": {
+    "tone": "Profissional, acolhedor, elegante — transmite confiança sem ser corporativo/frio",
+    "keywords": ["saúde", "bem-estar", "orientação profissional", "online", "personalizado"]
+  }
+}
