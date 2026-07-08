@@ -1,3 +1,6 @@
 [build]
   publish = "public"
-  command = ""
+  command = "echo ok"
+
+[build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
