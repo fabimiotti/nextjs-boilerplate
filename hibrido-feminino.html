@@ -1,0 +1,115 @@
+<!doctype html>
+<meta charset="UTF-8">
+<title>Fabi Miotti — Híbrido (Feminino)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{--paper:#F4EFE3;--paper-soft:#FBF8F1;--ink:#2C2A22;--ink-soft:#736C58;--ink-faint:#A39D89;--green:#3B4630;--green-deep:#2E3826;--accent:#BD6B3B;--accent-soft:#D08F62;--line:#DED2B8;--stage:#1E2318;}
+  *{box-sizing:border-box;}html,body{height:100%;}
+  body{margin:0;min-height:100vh;background:radial-gradient(ellipse 900px 600px at 50% -10%,#2B3222 0%,var(--stage) 55%);color:var(--paper);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;padding:2.5rem 1rem;}
+  .stage{position:relative;display:flex;align-items:center;gap:.9rem;}
+  .card{position:relative;width:min(94vw,380px);aspect-ratio:9/16;max-height:min(78vh,780px);background:var(--paper);color:var(--ink);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 30px 60px -20px rgba(0,0,0,.55),0 10px 24px -12px rgba(0,0,0,.5);border:1px solid #00000012;}
+  .viewport{flex:1 1 auto;overflow:hidden;min-height:0;}
+  .track{display:flex;height:100%;transition:transform .5s cubic-bezier(.65,0,.35,1);will-change:transform;}
+  @media (prefers-reduced-motion:reduce){.track{transition:none;}}
+  .slide{flex:0 0 100%;height:100%;overflow-y:auto;padding:2.1rem 1.6rem 1.4rem;display:flex;flex-direction:column;scrollbar-width:thin;scrollbar-color:var(--line) transparent;}
+  .slide::-webkit-scrollbar{width:5px;}.slide::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px;}
+  .eyebrow{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem;}
+  h1,h2,h3,h4{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;color:var(--green);margin:0;text-wrap:balance;}
+  .title-rule{width:38px;height:2px;background:var(--accent);border:none;margin:.7rem 0 1.15rem;}
+  .lede{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-style:italic;font-size:1.28rem;line-height:1.5;color:var(--green-deep);text-wrap:balance;text-align:center;}
+  p.body-text{font-size:.92rem;line-height:1.62;color:var(--ink);margin:0 0 1rem;}p.body-text:last-child{margin-bottom:0;}
+  p.subtitle{font-style:italic;font-size:.88rem;line-height:1.5;color:var(--ink-soft);margin:.55rem 0 1.1rem;}
+  .items{display:flex;flex-direction:column;gap:1.05rem;margin-top:.2rem;}
+  .item{display:flex;gap:.65rem;align-items:flex-start;}
+  .item .bead{width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:.55rem;flex:none;}
+  .item-title{margin:0;font-weight:700;font-size:.87rem;color:var(--green-deep);}
+  .item-desc{margin:.2rem 0 0;font-size:.84rem;line-height:1.5;color:var(--ink-soft);}
+  .toggle-row{display:flex;align-items:center;gap:.5rem;margin:.9rem 0;}
+  .chip{padding:.45rem .9rem;border-radius:999px;font-size:.76rem;font-weight:600;}
+  .chip.presencial{background:var(--green);color:var(--paper-soft);}
+  .chip.online{background:var(--accent);color:#fff;}
+  .toggle-arrow{color:var(--ink-faint);}
+  .plan-label{font-weight:700;font-size:.8rem;color:var(--green-deep);margin:1rem 0 .4rem;}
+  .plan-label:first-of-type{margin-top:.3rem;}
+  .note{font-size:.72rem;line-height:1.5;color:var(--ink-faint);margin-top:.9rem;font-style:italic;}
+  .nutri-box{border:1px dashed var(--accent-soft);border-radius:12px;padding:.9rem 1rem;margin-top:1.1rem;}
+  .nutri-box .tag{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+  .nutri-box p{margin:.35rem 0 0;font-size:.84rem;line-height:1.5;color:var(--ink);}
+  .nutri-box .price{font-weight:700;color:var(--green-deep);}
+  table.pricing{width:100%;border-collapse:collapse;margin-top:.3rem;font-size:.84rem;}
+  table.pricing thead th{background:var(--green);color:var(--paper-soft);text-align:left;font-weight:600;padding:.52rem .65rem;font-size:.74rem;}
+  table.pricing thead th:not(:first-child){text-align:right;}
+  table.pricing tbody td{padding:.5rem .65rem;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;}
+  table.pricing tbody td:not(:first-child){text-align:right;}
+  table.pricing tbody tr:last-child td{border-bottom:none;}
+  table.pricing tr.best td{color:var(--accent);font-weight:700;}
+  table.pricing td .sub{display:block;font-weight:400;font-size:.72rem;color:var(--ink-faint);}
+  table.compare{width:100%;border-collapse:collapse;font-size:.78rem;margin-top:.2rem;}
+  table.compare th{text-align:left;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);padding:.4rem .35rem .55rem;border-bottom:1px solid var(--line);}
+  table.compare th:not(:first-child){text-align:center;}
+  table.compare td{padding:.62rem .35rem;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.4;}
+  table.compare td:first-child{color:var(--green-deep);font-weight:600;}
+  table.compare td:not(:first-child){text-align:center;color:var(--ink-soft);}
+  table.compare tr:last-child td{border-bottom:none;}
+  .yes{color:var(--green);font-weight:700;}.no{color:var(--ink-faint);}
+  .namecard{background:var(--paper-soft);border-radius:10px;padding:1.5rem 1rem;text-align:center;margin:0 0 1.9rem;}
+  .namecard h1{font-size:1.5rem;letter-spacing:.02em;}
+  .namecard .rule{width:34px;height:1px;background:var(--accent);border:none;margin:.6rem auto;}
+  .namecard .role{font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--green);font-weight:600;margin:0;}
+  .namecard .cref{font-size:.58rem;letter-spacing:.08em;color:var(--ink-faint);margin:.35rem 0 0;}
+  .cover-flex{flex:1;display:flex;flex-direction:column;justify-content:center;}
+  .swipe-hint{text-align:center;color:var(--accent);font-size:.76rem;margin-top:auto;padding-top:1.2rem;}
+  .closing-panel{border:1px solid var(--accent-soft);border-radius:14px;padding:1.5rem 1.2rem;text-align:center;}
+  .closing-panel p{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-size:1rem;line-height:1.6;color:var(--green-deep);margin:0 0 1rem;}
+  .closing-panel .sig{font-size:.74rem;letter-spacing:.03em;color:var(--ink-soft);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .tier-icon{font-size:1.3rem;margin-right:.35rem;vertical-align:-3px;}
+  .footer{flex:0 0 auto;border-top:1px solid var(--line);background:var(--paper);padding:.7rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
+  .footer .label{font-size:.64rem;letter-spacing:.05em;color:var(--ink-faint);min-width:64px;}
+  .footer .counter{font-size:.64rem;letter-spacing:.05em;color:var(--ink-faint);min-width:34px;text-align:right;font-variant-numeric:tabular-nums;}
+  .dots{display:flex;gap:5px;}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--line);cursor:pointer;transition:all .25s ease;border:none;padding:0;}
+  .dot.active{background:var(--accent);width:14px;border-radius:3px;}
+  .dot:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .nav{width:38px;height:38px;border-radius:50%;border:1px solid #33392A;background:#262C1D;color:#E8E2CE;font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;transition:background .2s ease,transform .15s ease;}
+  .nav:hover{background:#2F3624;}.nav:active{transform:scale(.93);}.nav:focus-visible{outline:2px solid var(--accent-soft);outline-offset:2px;}.nav[disabled]{opacity:.3;cursor:default;}
+  .tapzone{position:absolute;top:0;bottom:56px;width:32%;cursor:pointer;}.tapzone.left{left:0;}.tapzone.right{right:0;}
+  @media (max-width:640px){.nav{display:none;}.hint{display:none;}}
+  .hint{font-size:.72rem;color:var(--ink-faint);letter-spacing:.02em;}
+</style>
+<div class="stage">
+  <button class="nav prev" id="prevBtn" aria-label="Slide anterior">&#8249;</button>
+  <div class="card" id="card">
+    <div class="viewport"><div class="track" id="track">
+      <section class="slide"><div class="cover-flex"><div class="namecard"><h1>Fabi Miotti</h1><hr class="rule" /><p class="role">Personal Trainer / Consultoria Online</p><p class="cref">CREF 063792-G/SP</p></div><p class="lede">Seu corpo pode mudar em qualquer fase da vida. Com treino de for&ccedil;a, cardio estrat&eacute;gico e o m&eacute;todo certo, voc&ecirc; emagrece, ganha m&uacute;sculo, melhora a sa&uacute;de e reconquista a confian&ccedil;a no seu corpo e no espelho.</p></div><p class="swipe-hint">deslize para conhecer o h&iacute;brido &#8595;</p></section>
+      <section class="slide"><p class="eyebrow">Sobre mim</p><h2>Apresenta&ccedil;&atilde;o &amp; Diferencial T&eacute;cnico</h2><hr class="title-rule" /><p class="body-text">Sou bacharel em Educa&ccedil;&atilde;o F&iacute;sica pela Universidade Presbiteriana Mackenzie (SP) e p&oacute;s-graduanda em Alta Performance, Biom&acirc;nica e Nutri&ccedil;&atilde;o Avan&ccedil;ada pela Universidade Anhanguera.</p><p class="body-text">Meu trabalho &eacute; voltado para mulheres 35+ que est&atilde;o vivenciando a perimenopausa ou a menopausa. Atrav&eacute;s de um treinamento de for&ccedil;a individualizado, desenvolvemos estrat&eacute;gias para preservar e aumentar a massa muscular, melhorar a composi&ccedil;&atilde;o corporal, favorecer adapta&ccedil;&otilde;es metab&oacute;licas, aumentar a funcionalidade e devolver for&ccedil;a, vitalidade e autoestima.</p></section>
+      <section class="slide"><p class="eyebrow">O modelo</p><h2><span class="tier-icon">&#128260;</span>H&iacute;brido: Presencial + Online</h2><hr class="title-rule" /><p class="body-text">Comece presencialmente para consolidar a t&eacute;cnica com seguran&ccedil;a e, na sequ&ecirc;ncia, siga com autonomia no acompanhamento online &mdash; sem perder o suporte especializado.</p><div class="toggle-row"><span class="chip presencial">Presencial</span><span class="toggle-arrow">&rarr;</span><span class="chip online">Online</span></div><div class="items"><div class="item"><span class="bead"></span><div><p class="item-title">Fase Presencial</p><p class="item-desc">Aulas individuais com corre&ccedil;&atilde;o biom&ecirc;canica, aprendizado de t&eacute;cnica e progress&atilde;o de carga &mdash; no valor do plano Individual.</p></div></div><div class="item"><span class="bead"></span><div><p class="item-title">Fase Online</p><p class="item-desc">Treino 100% individualizado no app, v&iacute;deos de execu&ccedil;&atilde;o, avalia&ccedil;&otilde;es, manual da consultoria e suporte. Duas op&ccedil;&otilde;es: Light ou Premium.</p></div></div></div></section>
+      <section class="slide"><p class="eyebrow">Acompanhamento online</p><h2>Duas Op&ccedil;&otilde;es para a Fase Online</h2><hr class="title-rule" /><p class="body-text">Ap&oacute;s consolidar a t&eacute;cnica no presencial, voc&ecirc; escolhe o formato de acompanhamento online que faz mais sentido para o seu momento:</p><div class="items"><div class="item"><span class="bead"></span><div><p class="item-title"><span class="tier-icon">&#127793;</span>Light &mdash; R$ 300/m&ecirc;s</p><p class="item-desc">Treino individualizado, v&iacute;deos de execu&ccedil;&atilde;o, app completo e suporte em grupo. Ideal para quem j&aacute; tem autonomia e quer manter a estrutura.</p></div></div><div class="item"><span class="bead"></span><div><p class="item-title"><span class="tier-icon">&#128142;</span>Premium &mdash; R$ 580/m&ecirc;s</p><p class="item-desc">Tudo do Light + suporte individual priorit&aacute;rio, corre&ccedil;&atilde;o de v&iacute;deos da sua execu&ccedil;&atilde;o, plano alimentar com nutricionista e feedback semanal em &aacute;udio/v&iacute;deo.</p></div></div></div></section>
+      <section class="slide"><p class="eyebrow">Investimento &middot; Light</p><h2><span class="tier-icon">&#127793;</span>H&iacute;brido + Light</h2><hr class="title-rule" /><p class="subtitle">Presencial individual (2x ou 3x/sem) + online Light</p><p class="plan-label">2x por semana (presencial)</p><table class="pricing"><thead><tr><th>Plano</th><th>Total</th></tr></thead><tbody><tr><td>Imers&atilde;o<span class="sub">1 m&ecirc;s presencial + 3 online</span></td><td>R$ 1.660<span class="sub">4x R$ 415/m&ecirc;s</span></td></tr><tr class="best"><td>Consolida&ccedil;&atilde;o<span class="sub">3 meses presencial + 3 online</span></td><td>R$ 3.060<span class="sub">6x R$ 510/m&ecirc;s</span></td></tr></tbody></table><p class="plan-label">3x por semana (presencial)</p><table class="pricing"><thead><tr><th>Plano</th><th>Total</th></tr></thead><tbody><tr><td>Imers&atilde;o<span class="sub">1 m&ecirc;s presencial + 3 online</span></td><td>R$ 1.980<span class="sub">4x R$ 495/m&ecirc;s</span></td></tr><tr class="best"><td>Consolida&ccedil;&atilde;o<span class="sub">3 meses presencial + 3 online</span></td><td>R$ 3.960<span class="sub">6x R$ 660/m&ecirc;s</span></td></tr></tbody></table></section>
+      <section class="slide"><p class="eyebrow">Formato Light</p><h2><span class="tier-icon">&#127793;</span>O que voc&ecirc; recebe</h2><hr class="title-rule" /><div class="items"><div class="item"><span class="bead"></span><div><p class="item-title">Avalia&ccedil;&atilde;o Postural Individualizada</p><p class="item-desc">Identifica&ccedil;&atilde;o de padr&otilde;es, desvios e limita&ccedil;&otilde;es, com v&iacute;deo explicativo de retorno.</p></div></div><div class="item"><span class="bead"></span><div><p class="item-title">Treino 100% Individualizado</p><p class="item-desc">Programado especialmente para voc&ecirc;, sem ficha gen&eacute;rica.</p></div></div><div class="item"><span class="bead"></span><div><p class="item-title">V&iacute;deos de Execu&ccedil;&atilde;o</p><p class="item-desc">Cada exerc&iacute;cio com v&iacute;deo explicativo, direto no app.</p></div></div><div class="item"><span class="bead"></span><div><p class="item-title">App Exclusivo</p><p class="item-desc">Desenvolvido por mim &mdash; progress&atilde;o de treino, cargas, passos, sono, exames e avalia&ccedil;&otilde;es, tudo num s&oacute; lugar.</p></div></div><div class="item"><span class="bead"></span><div><p class="item-title">Suporte em Grupo</p><p class="item-desc">D&uacute;vidas e comunidade entre alunas via WhatsApp em grupo.</p></div></div><div class="item"><span class="bead"></span><div><p class="item-title">Feedback Semanal</p><p class="item-desc">Retorno padronizado sobre sua evolu&ccedil;&atilde;o.</p></div></div></div><div class="nutri-box"><span class="tag">Opcional</span><p>Consultoria nutricional com nutricionista parceiro, com videochamada antes de cada dieta entregue &mdash; <span class="price">R$ 200,00 por dieta</span>.</p></div></section>
+      <section class="slide"><p class="eyebrow">Investimento &middot; Premium</p><h2><span class="tier-icon">&#128142;</span>H&iacute;brido + Premium</h2><hr class="title-rule" /><p class="subtitle">Presencial individual (2x ou 3x/sem) + online Premium</p><p class="plan-label">2x por semana (presencial)</p><table class="pricing"><thead><tr><th>Plano</th><th>Total</th></tr></thead><tbody><tr><td>Imers&atilde;o<span class="sub">1 m&ecirc;s presencial + 3 online</span></td><td>R$ 2.500<span class="sub">4x R$ 625/m&ecirc;s</span></td></tr><tr class="best"><td>Consolida&ccedil;&atilde;o<span class="sub">3 meses presencial + 3 online</span></td><td>R$ 3.900<span class="sub">6x R$ 650/m&ecirc;s</span></td></tr></tbody></table><p class="plan-label">3x por semana (presencial)</p><table class="pricing"><thead><tr><th>Plano</th><th>Total</th></tr></thead><tbody><tr><td>Imers&atilde;o<span class="sub">1 m&ecirc;s presencial + 3 online</span></td><td>R$ 2.820<span class="sub">4x R$ 705/m&ecirc;s</span></td></tr><tr class="best"><td>Consolida&ccedil;&atilde;o<span class="sub">3 meses presencial + 3 online</span></td><td>R$ 4.800<span class="sub">6x R$ 800/m&ecirc;s</span></td></tr></tbody></table></section>
+      <section class="slide"><p class="eyebrow">Formato Premium</p><h2><span class="tier-icon">&#128142;</span>O que voc&ecirc; recebe</h2><hr class="title-rule" /><p class="subtitle">Tudo do Light, mais:</p><div class="items"><div class="item"><span class="bead"></span><div><p class="item-title">Suporte Individual Priorit&aacute;rio</p><p class="item-desc">Canal direto no WhatsApp, com resposta em at&eacute; 4h (8h&ndash;20h, segunda a s&aacute;bado).</p></div></div><div class="item"><span class="bead"></span><div><p class="item-title">Corre&ccedil;&atilde;o de V&iacute;deos</p><p class="item-desc">Envie v&iacute;deos da sua execu&ccedil;&atilde;o e receba corre&ccedil;&atilde;o em at&eacute; 24h.</p></div></div><div class="item"><span class="bead"></span><div><p class="item-title">Plano Alimentar Personalizado</p><p class="item-desc">Desenvolvido por nutricionista parceiro, revisto a cada 3 meses, com videochamada antes de cada nova dieta.</p></div></div><div class="item"><span class="bead"></span><div><p class="item-title">Feedback Semanal em &Aacute;udio/V&iacute;deo</p><p class="item-desc">Acompanhamento pr&oacute;ximo e individual da sua evolu&ccedil;&atilde;o.</p></div></div></div><p class="note">Inclui tamb&eacute;m todos os entregáveis do Light: avalia&ccedil;&atilde;o postural, avalia&ccedil;&atilde;o por circunfer&ecirc;ncias, manual da consultoria, treino individualizado, v&iacute;deos de execu&ccedil;&atilde;o e app exclusivo.</p></section>
+      <section class="slide"><p class="eyebrow">Qual formato &eacute; pra voc&ecirc;</p><h2>Light vs. Premium</h2><hr class="title-rule" /><table class="compare"><thead><tr><th>Recurso</th><th>Light</th><th>Premium</th></tr></thead><tbody><tr><td>Avalia&ccedil;&atilde;o postural</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr><tr><td>Avalia&ccedil;&atilde;o f&iacute;sica</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr><tr><td>Manual da consultoria</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr><tr><td>Treino individualizado</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr><tr><td>V&iacute;deos de execu&ccedil;&atilde;o</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr><tr><td>App exclusivo</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr><tr><td>Suporte WhatsApp</td><td>grupo</td><td>individual</td></tr><tr><td>Corre&ccedil;&atilde;o de v&iacute;deos</td><td class="no">&mdash;</td><td class="yes">at&eacute; 24h</td></tr><tr><td>Plano alimentar</td><td class="no">&mdash;</td><td class="yes">&#10003;</td></tr><tr><td>Feedback semanal</td><td>padr&atilde;o</td><td>&aacute;udio/v&iacute;deo</td></tr></tbody></table></section>
+      <section class="slide"><p class="eyebrow">Pagamento</p><h2><span class="tier-icon">&#128179;</span>Formas de Pagamento</h2><hr class="title-rule" /><div class="items"><div class="item"><span class="bead"></span><div><p class="item-title">Pix ou Cart&atilde;o de Cr&eacute;dito</p><p class="item-desc">Parcele de acordo com os meses contratados &mdash; Imers&atilde;o em at&eacute; 4x, Consolida&ccedil;&atilde;o em at&eacute; 6x.</p></div></div></div><div class="closing-panel" style="margin-top:1.5rem;"><p>Vagas limitadas para garantir a qualidade do acompanhamento. Vamos tra&ccedil;ar juntas o melhor caminho para os seus objetivos? &#128155;</p><p class="sig">Fabi Miotti &middot; CREF 063792-G/SP</p></div></section>
+    </div></div>
+    <div class="footer"><span class="label" id="labelText">Fabi Miotti</span><div class="dots" id="dots"></div><span class="counter" id="counterText">01/10</span></div>
+    <div class="tapzone left" id="tapLeft" aria-hidden="true"></div>
+    <div class="tapzone right" id="tapRight" aria-hidden="true"></div>
+  </div>
+  <button class="nav next" id="nextBtn" aria-label="Pr&oacute;ximo slide">&#8250;</button>
+</div>
+<p class="hint">use as setas &larr; &rarr; , clique nas laterais do card ou arraste para navegar</p>
+<script>
+  const labels=["Fabi Miotti","Diferencial","Como funciona","Opções Online","Light · Valores","Light","Premium · Valores","Premium","Comparativo","Pagamento"];
+  const track=document.getElementById('track'),dotsEl=document.getElementById('dots'),labelEl=document.getElementById('labelText'),counterEl=document.getElementById('counterText'),prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn'),total=labels.length;let index=0;
+  for(let i=0;i<total;i++){const b=document.createElement('button');b.className='dot'+(i===0?' active':'');b.setAttribute('aria-label','Ir para slide '+(i+1));b.addEventListener('click',()=>goTo(i));dotsEl.appendChild(b);}
+  function pad(n){return n<10?'0'+n:''+n;}
+  function render(){track.style.transform='translateX(-'+(index*100)+'%)';[...dotsEl.children].forEach((d,i)=>d.classList.toggle('active',i===index));labelEl.textContent=labels[index];counterEl.textContent=pad(index+1)+'/'+pad(total);prevBtn.disabled=index===0;nextBtn.disabled=index===total-1;}
+  function goTo(i){index=Math.max(0,Math.min(total-1,i));render();}
+  prevBtn.addEventListener('click',()=>goTo(index-1));nextBtn.addEventListener('click',()=>goTo(index+1));
+  document.getElementById('tapLeft').addEventListener('click',()=>goTo(index-1));document.getElementById('tapRight').addEventListener('click',()=>goTo(index+1));
+  window.addEventListener('keydown',(e)=>{if(e.key==='ArrowRight')goTo(index+1);if(e.key==='ArrowLeft')goTo(index-1);});
+  const card=document.getElementById('card');let touchStartX=null;
+  card.addEventListener('touchstart',(e)=>{touchStartX=e.touches[0].clientX;},{passive:true});
+  card.addEventListener('touchend',(e)=>{if(touchStartX===null)return;const dx=e.changedTouches[0].clientX-touchStartX;if(Math.abs(dx)>40){dx<0?goTo(index+1):goTo(index-1);}touchStartX=null;},{passive:true});
+  render();
+</script>
