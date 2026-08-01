@@ -1,0 +1,264 @@
+<!doctype html>
+<meta charset="UTF-8">
+<title>Fabi Miotti — Apresentação (Masculino)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --paper:#F4EFE3;
+    --paper-soft:#FBF8F1;
+    --ink:#2C2A22;
+    --ink-soft:#736C58;
+    --ink-faint:#A39D89;
+    --green:#3B4630;
+    --green-deep:#2E3826;
+    --accent:#7C8863;
+    --accent-soft:#A6AD84;
+    --line:#DED2B8;
+    --stage:#1E2318;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0; min-height:100vh;
+    background: radial-gradient(ellipse 900px 600px at 50% -10%, #2B3222 0%, var(--stage) 55%);
+    color:var(--paper);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:1.1rem; padding:2.5rem 1rem;
+  }
+  .stage{ position:relative; display:flex; align-items:center; gap:.9rem; }
+  .card{
+    position:relative; width:min(94vw,380px); aspect-ratio:9/16; max-height:min(78vh,780px);
+    background:var(--paper); color:var(--ink); border-radius:22px; overflow:hidden;
+    display:flex; flex-direction:column;
+    box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 30px 60px -20px rgba(0,0,0,.55),0 10px 24px -12px rgba(0,0,0,.5);
+    border:1px solid #00000012;
+  }
+  .viewport{ flex:1 1 auto; overflow:hidden; min-height:0; }
+  .track{ display:flex; height:100%; transition:transform .5s cubic-bezier(.65,0,.35,1); will-change:transform; }
+  @media (prefers-reduced-motion: reduce){ .track{ transition:none; } }
+  .slide{
+    flex:0 0 100%; height:100%; overflow-y:auto; padding:2.1rem 1.6rem 1.4rem;
+    display:flex; flex-direction:column; scrollbar-width:thin; scrollbar-color:var(--line) transparent;
+  }
+  .slide::-webkit-scrollbar{ width:5px; }
+  .slide::-webkit-scrollbar-thumb{ background:var(--line); border-radius:3px; }
+  .eyebrow{ font-size:.66rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 .5rem; }
+  h1,h2,h3,h4{ font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif; color:var(--green); margin:0; text-wrap:balance; }
+  .title-rule{ width:38px; height:2px; background:var(--accent); border:none; margin:.7rem 0 1.15rem; }
+  .lede{ font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif; font-style:italic; font-size:1.28rem; line-height:1.5; color:var(--green-deep); text-wrap:balance; text-align:center; }
+  p.body-text{ font-size:.92rem; line-height:1.62; color:var(--ink); margin:0 0 1rem; }
+  p.body-text:last-child{ margin-bottom:0; }
+  p.subtitle{ font-style:italic; font-size:.88rem; line-height:1.5; color:var(--ink-soft); margin:.55rem 0 1.1rem; }
+  .items{ display:flex; flex-direction:column; gap:1.05rem; margin-top:.2rem; }
+  .item{ display:flex; gap:.65rem; align-items:flex-start; }
+  .item .bead{ width:6px; height:6px; border-radius:50%; background:var(--accent); margin-top:.55rem; flex:none; }
+  .item-title{ margin:0; font-weight:700; font-size:.87rem; color:var(--green-deep); }
+  .item-desc{ margin:.2rem 0 0; font-size:.84rem; line-height:1.5; color:var(--ink-soft); }
+  table.pricing{ width:100%; border-collapse:collapse; margin-top:.3rem; font-size:.84rem; }
+  table.pricing thead th{ background:var(--green); color:var(--paper-soft); text-align:left; font-weight:600; padding:.52rem .65rem; font-size:.74rem; }
+  table.pricing thead th:not(:first-child){ text-align:right; }
+  table.pricing tbody td{ padding:.5rem .65rem; border-bottom:1px solid var(--line); font-variant-numeric:tabular-nums; }
+  table.pricing tbody td:not(:first-child){ text-align:right; }
+  table.pricing tbody td.aula{ color:var(--accent); font-weight:600; font-size:.76rem; }
+  table.pricing tbody tr:last-child td{ border-bottom:none; }
+  table.pricing tr.best td{ color:var(--accent); font-weight:700; }
+  .plan-label{ font-weight:700; font-size:.8rem; color:var(--green-deep); margin:1rem 0 .4rem; }
+  .plan-label:first-of-type{ margin-top:.3rem; }
+  .avulsa-box{ background:var(--green); color:var(--paper-soft); border-radius:12px; padding:.85rem 1rem; text-align:center; margin-top:1.1rem; }
+  .avulsa-box .price{ font-weight:700; font-size:1.02rem; }
+  .namecard{ background:var(--paper-soft); border-radius:10px; padding:1.5rem 1rem; text-align:center; margin:0 0 1.9rem; }
+  .namecard h1{ font-size:1.5rem; letter-spacing:.02em; }
+  .namecard .rule{ width:34px; height:1px; background:var(--accent); border:none; margin:.6rem auto; }
+  .namecard .role{ font-size:.64rem; letter-spacing:.13em; text-transform:uppercase; color:var(--green); font-weight:600; margin:0; }
+  .namecard .cref{ font-size:.58rem; letter-spacing:.08em; color:var(--ink-faint); margin:.35rem 0 0; }
+  .cover-flex{ flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .swipe-hint{ text-align:center; color:var(--accent); font-size:.76rem; margin-top:auto; padding-top:1.2rem; }
+  .closing-flex{ flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .closing-panel{ border:1px solid var(--accent-soft); border-radius:14px; padding:1.5rem 1.2rem; text-align:center; }
+  .closing-panel p{ font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif; font-size:1rem; line-height:1.6; color:var(--green-deep); margin:0 0 1rem; }
+  .closing-panel .sig{ font-size:.74rem; letter-spacing:.03em; color:var(--ink-soft); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  .tier-icon{ font-size:1.3rem; margin-right:.35rem; vertical-align:-3px; }
+  .footer{ flex:0 0 auto; border-top:1px solid var(--line); background:var(--paper); padding:.7rem 1.1rem; display:flex; align-items:center; justify-content:space-between; gap:.5rem; }
+  .footer .label{ font-size:.64rem; letter-spacing:.05em; color:var(--ink-faint); min-width:64px; }
+  .footer .counter{ font-size:.64rem; letter-spacing:.05em; color:var(--ink-faint); min-width:34px; text-align:right; font-variant-numeric:tabular-nums; }
+  .dots{ display:flex; gap:5px; }
+  .dot{ width:5px; height:5px; border-radius:50%; background:var(--line); cursor:pointer; transition:all .25s ease; border:none; padding:0; }
+  .dot.active{ background:var(--accent); width:14px; border-radius:3px; }
+  .dot:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .nav{ width:38px; height:38px; border-radius:50%; border:1px solid #33392A; background:#262C1D; color:#E8E2CE; font-size:1.1rem; display:flex; align-items:center; justify-content:center; cursor:pointer; flex:none; transition:background .2s ease, transform .15s ease; }
+  .nav:hover{ background:#2F3624; }
+  .nav:active{ transform:scale(.93); }
+  .nav:focus-visible{ outline:2px solid var(--accent-soft); outline-offset:2px; }
+  .nav[disabled]{ opacity:.3; cursor:default; }
+  .tapzone{ position:absolute; top:0; bottom:56px; width:32%; cursor:pointer; }
+  .tapzone.left{ left:0; }
+  .tapzone.right{ right:0; }
+  @media (max-width: 640px){ .nav{ display:none; } .hint{ display:none; } }
+  .hint{ font-size:.72rem; color:var(--ink-faint); letter-spacing:.02em; }
+</style>
+
+<div class="stage">
+  <button class="nav prev" id="prevBtn" aria-label="Slide anterior">&#8249;</button>
+  <div class="card" id="card">
+    <div class="viewport">
+      <div class="track" id="track">
+        <section class="slide">
+          <div class="cover-flex">
+            <div class="namecard">
+              <h1>Fabi Miotti</h1>
+              <hr class="rule" />
+              <p class="role">Personal Trainer / Consultoria Online</p>
+              <p class="cref">CREF 063792-G/SP</p>
+            </div>
+            <p class="lede">Treinamento de força com técnica, estratégia e base científica — para você evoluir com segurança, consistência e resultados de verdade.</p>
+          </div>
+          <p class="swipe-hint">deslize para conhecer o acompanhamento &#8595;</p>
+        </section>
+        <section class="slide">
+          <p class="eyebrow">Sobre mim</p>
+          <h2>Apresentação &amp; Diferencial Técnico</h2>
+          <hr class="title-rule" />
+          <p class="body-text">Sou bacharel em Educação Física pela Universidade Presbiteriana Mackenzie (SP) e pós-graduanda em Alta Performance, Biomecânica e Nutrição Avançada pela Universidade Anhanguera.</p>
+          <p class="body-text">Também estou em processo de certificação em Interpretação de Exames Laboratoriais e Prescrição do Treinamento das Doenças ao Alto Rendimento.</p>
+          <p class="body-text">Desenvolvo programas de treinamento personalizados, baseados em evidências científicas, para promover resultados consistentes com segurança, estratégia e respeito à individualidade de cada aluno.</p>
+          <p class="body-text">Trabalho com treinamento de força individualizado, priorizando técnica de execução, progressão de carga e prevenção de lesões — para desenvolver força, mobilidade e performance de forma consistente e sustentável, seja qual for o seu ponto de partida.</p>
+        </section>
+        <section class="slide">
+          <p class="eyebrow">O acompanhamento</p>
+          <h2>O que está incluso</h2>
+          <hr class="title-rule" />
+          <div class="items">
+            <div class="item"><span class="bead"></span><div><p class="item-title">Avaliação Inicial</p><p class="item-desc">Anamnese e avaliação funcional completa.</p></div></div>
+            <div class="item"><span class="bead"></span><div><p class="item-title">Planejamento</p><p class="item-desc">Treinamento sob medida baseado em evidências científicas.</p></div></div>
+            <div class="item"><span class="bead"></span><div><p class="item-title">Aulas Presenciais</p><p class="item-desc">Sessões de 60 minutos com acompanhamento técnico individualizado.</p></div></div>
+            <div class="item"><span class="bead"></span><div><p class="item-title">Supervisão</p><p class="item-desc">Correção da execução dos exercícios, postura e progressão de cargas.</p></div></div>
+            <div class="item"><span class="bead"></span><div><p class="item-title">Suporte Integral</p><p class="item-desc">Orientações sobre hidratação, sono e suplementação básica.</p></div></div>
+            <div class="item"><span class="bead"></span><div><p class="item-title">App Exclusivo</p><p class="item-desc">Desenvolvido por mim — você baixa no celular e eu acompanho em tempo real sua progressão de treino, cargas, passos e sono.</p></div></div>
+            <div class="item"><span class="bead"></span><div><p class="item-title">Canal Direto</p><p class="item-desc">Suporte via WhatsApp para dúvidas e ajustes de rotina.</p></div></div>
+          </div>
+        </section>
+        <section class="slide">
+          <p class="eyebrow">Investimento</p>
+          <h2><span class="tier-icon">&#128640;</span>Individual (Exclusivo)</h2>
+          <hr class="title-rule" />
+          <p class="subtitle">Foco total, correção biomecânica minuciosa e máxima personalização.</p>
+          <p class="plan-label">2x por semana — 8 aulas/mês</p>
+          <table class="pricing">
+            <thead><tr><th>Plano</th><th>Valor</th><th>Por aula</th></tr></thead>
+            <tbody>
+              <tr><td>Mensal</td><td>R$ 760,00</td><td class="aula">R$ 95,00</td></tr>
+              <tr><td>Trimestral</td><td>R$ 720,00/mês</td><td class="aula">R$ 90,00</td></tr>
+              <tr class="best"><td>Semestral</td><td>R$ 680,00/mês</td><td class="aula">R$ 85,00</td></tr>
+            </tbody>
+          </table>
+          <p class="plan-label">3x por semana — 12 aulas/mês</p>
+          <table class="pricing">
+            <thead><tr><th>Plano</th><th>Valor</th><th>Por aula</th></tr></thead>
+            <tbody>
+              <tr><td>Mensal</td><td>R$ 1.080,00</td><td class="aula">R$ 90,00</td></tr>
+              <tr><td>Trimestral</td><td>R$ 1.020,00/mês</td><td class="aula">R$ 85,00</td></tr>
+              <tr class="best"><td>Semestral</td><td>R$ 960,00/mês</td><td class="aula">R$ 80,00</td></tr>
+            </tbody>
+          </table>
+          <div class="avulsa-box">Aula Avulsa / Check-in esporádico<br /><span class="price">R$ 100,00 por sessão</span></div>
+        </section>
+        <section class="slide">
+          <p class="eyebrow">Investimento</p>
+          <h2><span class="tier-icon">&#129309;</span>Em Dupla</h2>
+          <hr class="title-rule" />
+          <p class="subtitle">Treine com alguém da sua confiança. Valores por pessoa.</p>
+          <p class="plan-label">2x por semana — 8 aulas/mês</p>
+          <table class="pricing">
+            <thead><tr><th>Plano</th><th>Valor</th><th>Por aula</th></tr></thead>
+            <tbody>
+              <tr><td>Mensal</td><td>R$ 480,00</td><td class="aula">R$ 60,00</td></tr>
+              <tr><td>Trimestral</td><td>R$ 440,00/mês</td><td class="aula">R$ 55,00</td></tr>
+              <tr class="best"><td>Semestral</td><td>R$ 400,00/mês</td><td class="aula">R$ 50,00</td></tr>
+            </tbody>
+          </table>
+          <p class="plan-label">3x por semana — 12 aulas/mês</p>
+          <table class="pricing">
+            <thead><tr><th>Plano</th><th>Valor</th><th>Por aula</th></tr></thead>
+            <tbody>
+              <tr><td>Mensal</td><td>R$ 660,00</td><td class="aula">R$ 55,00</td></tr>
+              <tr><td>Trimestral</td><td>R$ 600,00/mês</td><td class="aula">R$ 50,00</td></tr>
+              <tr class="best"><td>Semestral</td><td>R$ 540,00/mês</td><td class="aula">R$ 45,00</td></tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="slide">
+          <p class="eyebrow">Como funciona</p>
+          <h2><span class="tier-icon">&#128179;</span>Formas de Pagamento</h2>
+          <hr class="title-rule" />
+          <div class="items">
+            <div class="item"><span class="bead"></span><div><p class="item-title">Pix ou Cartão de Crédito</p><p class="item-desc">Parcele de acordo com os meses contratados — trimestral em até 3x, semestral em até 6x. Aula avulsa: pagamento no ato.</p></div></div>
+          </div>
+        </section>
+        <section class="slide">
+          <div class="closing-flex">
+            <div class="closing-panel">
+              <p>Vagas limitadas para garantir a qualidade do acompanhamento individualizado. Agende sua avaliação inicial e vamos traçar juntos o melhor caminho para os seus objetivos. &#128170;</p>
+              <p class="sig">Fabi Miotti · CREF 063792-G/SP</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="footer">
+      <span class="label" id="labelText">Fabi Miotti</span>
+      <div class="dots" id="dots"></div>
+      <span class="counter" id="counterText">01/07</span>
+    </div>
+    <div class="tapzone left" id="tapLeft" aria-hidden="true"></div>
+    <div class="tapzone right" id="tapRight" aria-hidden="true"></div>
+  </div>
+  <button class="nav next" id="nextBtn" aria-label="Próximo slide">&#8250;</button>
+</div>
+<p class="hint">use as setas &#8592; &#8594; , clique nas laterais do card ou arraste para navegar</p>
+<script>
+  const labels = ["Fabi Miotti","Diferencial","Incluso","Individual","Dupla","Pagamento","Vamos começar?"];
+  const track = document.getElementById('track');
+  const dotsEl = document.getElementById('dots');
+  const labelEl = document.getElementById('labelText');
+  const counterEl = document.getElementById('counterText');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const total = labels.length;
+  let index = 0;
+  for(let i=0;i<total;i++){
+    const b = document.createElement('button');
+    b.className = 'dot' + (i===0 ? ' active' : '');
+    b.setAttribute('aria-label', 'Ir para slide ' + (i+1));
+    b.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(b);
+  }
+  function pad(n){ return n < 10 ? '0'+n : ''+n; }
+  function render(){
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    [...dotsEl.children].forEach((d,i) => d.classList.toggle('active', i===index));
+    labelEl.textContent = labels[index];
+    counterEl.textContent = pad(index+1) + '/' + pad(total);
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === total - 1;
+  }
+  function goTo(i){ index = Math.max(0, Math.min(total-1, i)); render(); }
+  prevBtn.addEventListener('click', () => goTo(index-1));
+  nextBtn.addEventListener('click', () => goTo(index+1));
+  document.getElementById('tapLeft').addEventListener('click', () => goTo(index-1));
+  document.getElementById('tapRight').addEventListener('click', () => goTo(index+1));
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'ArrowRight') goTo(index+1);
+    if(e.key === 'ArrowLeft') goTo(index-1);
+  });
+  const card = document.getElementById('card');
+  let touchStartX = null;
+  card.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, {passive:true});
+  card.addEventListener('touchend', (e) => {
+    if(touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(dx) > 40){ dx < 0 ? goTo(index+1) : goTo(index-1); }
+    touchStartX = null;
+  }, {passive:true});
+  render();
+</script>
