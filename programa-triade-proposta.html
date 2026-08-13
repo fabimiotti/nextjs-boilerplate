@@ -62,6 +62,8 @@
   p.body-text{font-size:.92rem;line-height:1.62;color:var(--ink);margin:0 0 .9rem;}
   p.body-text:last-child{margin-bottom:0;}
 
+  p.subtitle{font-style:italic;font-size:.88rem;line-height:1.5;color:var(--ink-soft);margin:.4rem 0 1rem;}
+
   .lede{
     font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
     font-style:italic;font-size:1.18rem;line-height:1.52;
@@ -149,6 +151,7 @@
     <div class="viewport">
       <div class="track" id="track">
 
+        <!-- 1: CAPA -->
         <section class="slide">
           <div class="cover-flex">
             <div class="namecard">
@@ -167,6 +170,7 @@
           <p class="swipe-hint">deslize para ver a proposta &#8595;</p>
         </section>
 
+        <!-- 2: O PROBLEMA -->
         <section class="slide">
           <p class="eyebrow">O cen&aacute;rio atual</p>
           <h2>Por que o tratamento isolado tem limite</h2>
@@ -191,55 +195,117 @@
           </div>
         </section>
 
+        <!-- 3: A PROPOSTA -->
         <section class="slide">
           <p class="eyebrow">A solu&ccedil;&atilde;o</p>
           <h2>Um protocolo, tr&ecirc;s especialistas</h2>
           <hr class="title-rule" />
           <p class="body-text">O paciente n&atilde;o recebe tr&ecirc;s atendimentos separados. Recebe um programa integrado, onde m&eacute;dico, nutricionista e personal trabalham com as mesmas metas e os mesmos dados.</p>
           <div class="pillars">
-            <div class="pillar"><span class="icon">&#129658;</span><span class="pname">Cl&iacute;nico</span><span class="psub">Diagn&oacute;stico hormonal e metab&oacute;lico</span></div>
-            <div class="pillar"><span class="icon">&#127793;</span><span class="pname">Nutricional</span><span class="psub">Plano alimentar baseado em exames</span></div>
-            <div class="pillar"><span class="icon">&#128170;</span><span class="pname">F&iacute;sico</span><span class="psub">Treino individualizado e progressivo</span></div>
+            <div class="pillar">
+              <span class="icon">&#129658;</span>
+              <span class="pname">Cl&iacute;nico</span>
+              <span class="psub">Diagn&oacute;stico hormonal e metab&oacute;lico</span>
+            </div>
+            <div class="pillar">
+              <span class="icon">&#127793;</span>
+              <span class="pname">Nutricional</span>
+              <span class="psub">Plano alimentar baseado em exames</span>
+            </div>
+            <div class="pillar">
+              <span class="icon">&#128170;</span>
+              <span class="pname">F&iacute;sico</span>
+              <span class="psub">Treino individualizado e progressivo</span>
+            </div>
           </div>
           <p class="body-text">A integra&ccedil;&atilde;o real &mdash; comunica&ccedil;&atilde;o ativa entre os profissionais, protocolo compartilhado &mdash; &eacute; o que transforma tr&ecirc;s atendimentos em um programa.</p>
         </section>
 
+        <!-- 4: PÚBLICO-ALVO -->
         <section class="slide">
           <p class="eyebrow">Para quem</p>
           <h2>P&uacute;blico-alvo do Programa Tr&iacute;ade</h2>
           <hr class="title-rule" />
           <div class="two-col">
-            <div class="col-box"><h3>Mulheres 35&ndash;55</h3><ul><li>Perimenopausa e menopausa</li><li>Resist&ecirc;ncia &agrave; perda de peso</li><li>Perda de massa muscular</li><li>Baixa energia e disposi&ccedil;&atilde;o</li><li>Altera&ccedil;&otilde;es hormonais</li></ul></div>
-            <div class="col-box"><h3>Homens 35+</h3><ul><li>S&iacute;ndrome metab&oacute;lica</li><li>Sobrepeso e gordura visceral</li><li>Resist&ecirc;ncia insul&iacute;nica</li><li>Sedentarismo</li><li>Dificuldade de manuten&ccedil;&atilde;o</li></ul></div>
+            <div class="col-box">
+              <h3>Mulheres 35&ndash;55</h3>
+              <ul>
+                <li>Perimenopausa e menopausa</li>
+                <li>Resist&ecirc;ncia &agrave; perda de peso</li>
+                <li>Perda de massa muscular</li>
+                <li>Baixa energia e disposi&ccedil;&atilde;o</li>
+                <li>Altera&ccedil;&otilde;es hormonais</li>
+              </ul>
+            </div>
+            <div class="col-box">
+              <h3>Homens 35+</h3>
+              <ul>
+                <li>S&iacute;ndrome metab&oacute;lica</li>
+                <li>Sobrepeso e gordura visceral</li>
+                <li>Resist&ecirc;ncia insul&iacute;nica</li>
+                <li>Sedentarismo</li>
+                <li>Dificuldade de manuten&ccedil;&atilde;o</li>
+              </ul>
+            </div>
           </div>
           <p class="note">Pipa concentra um p&uacute;blico com perfil de investimento em qualidade de vida &mdash; turistas de alto padr&atilde;o e moradores com consci&ecirc;ncia de sa&uacute;de.</p>
         </section>
 
+        <!-- 5: FASE 1 -->
         <section class="slide">
           <p class="eyebrow">Fase 1 &middot; Semana 1</p>
           <h2>Diagn&oacute;stico integrado</h2>
           <hr class="title-rule" />
           <div class="items">
-            <div class="item"><span class="bead"></span><div><p class="item-title">Consulta m&eacute;dica</p><p class="item-desc">Avalia&ccedil;&atilde;o cl&iacute;nica completa + solicita&ccedil;&atilde;o de exames laboratoriais (horm&ocirc;nios, glicemia, lipidograma, etc.).</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Avalia&ccedil;&atilde;o f&iacute;sica</p><p class="item-desc">Avalia&ccedil;&atilde;o postural, circunfer&ecirc;ncias, composi&ccedil;&atilde;o corporal e condicionamento &mdash; com Fabi Miotti.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Anamnese nutricional</p><p class="item-desc">H&aacute;bitos alimentares, prefer&ecirc;ncias, intol&ecirc;r&acirc;ncias e rela&ccedil;&atilde;o com a comida.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Alinhamento entre profissionais</p><p class="item-desc">Reuni&atilde;o para cruzar os dados e definir o protocolo personalizado do paciente.</p></div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Consulta m&eacute;dica</p>
+              <p class="item-desc">Avalia&ccedil;&atilde;o cl&iacute;nica completa + solicita&ccedil;&atilde;o de exames laboratoriais (horm&ocirc;nios, glicemia, lipidograma, etc.).</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Avalia&ccedil;&atilde;o f&iacute;sica</p>
+              <p class="item-desc">Avalia&ccedil;&atilde;o postural, circunfer&ecirc;ncias, composi&ccedil;&atilde;o corporal e condicionamento &mdash; com Fabi Miotti.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Anamnese nutricional</p>
+              <p class="item-desc">H&aacute;bitos alimentares, prefer&ecirc;ncias, intol&ecirc;r&acirc;ncias e rela&ccedil;&atilde;o com a comida.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Alinhamento entre profissionais</p>
+              <p class="item-desc">Reuni&atilde;o para cruzar os dados e definir o protocolo personalizado do paciente.</p>
+            </div></div>
           </div>
         </section>
 
+        <!-- 6: FASE 2 -->
         <section class="slide">
-          <p class="eyebrow">Fase 2 &middot; Meses 1&ndash;3</p>
+          <p class="eyebrow">Fase 2 &middot; Meses 1&ndash;6</p>
           <h2>Protocolo ativo</h2>
           <hr class="title-rule" />
           <div class="items">
-            <div class="item"><span class="bead"></span><div><p class="item-title">Treino presencial 2&ndash;3x/semana</p><p class="item-desc">Treino de for&ccedil;a e cardio estrat&eacute;gico, com progress&atilde;o de carga e acompanhamento direto.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Plano alimentar</p><p class="item-desc">Desenvolvido com base nos exames e na demanda do treino, atualizado mensalmente.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Retorno m&eacute;dico</p><p class="item-desc">Retorno com exames em 30&ndash;45 dias &mdash; ajuste de protocolo cl&iacute;nico se necess&aacute;rio.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Comunica&ccedil;&atilde;o cont&iacute;nua</p><p class="item-desc">Protocolo compartilhado entre os profissionais &mdash; dados relevantes de cada &aacute;rea em tempo real.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Feedback semanal ao paciente</p><p class="item-desc">Retorno padronizado sobre evolu&ccedil;&atilde;o f&iacute;sica, nutricional e cl&iacute;nica.</p></div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Treino presencial 3x/semana</p>
+              <p class="item-desc">Treino de for&ccedil;a e cardio estrat&eacute;gico, com progress&atilde;o de carga e acompanhamento direto.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Plano alimentar</p>
+              <p class="item-desc">Desenvolvido com base nos exames e na demanda do treino, atualizado mensalmente.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Retorno m&eacute;dico</p>
+              <p class="item-desc">Retorno com exames em 30&ndash;45 dias &mdash; ajuste de protocolo cl&iacute;nico se necess&aacute;rio.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Comunica&ccedil;&atilde;o cont&iacute;nua</p>
+              <p class="item-desc">Protocolo compartilhado entre os profissionais &mdash; dados relevantes de cada &aacute;rea em tempo real.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Feedback semanal ao paciente</p>
+              <p class="item-desc">Retorno padronizado sobre evolu&ccedil;&atilde;o f&iacute;sica, nutricional e cl&iacute;nica.</p>
+            </div></div>
           </div>
         </section>
 
+        <!-- 7: PAPÉIS -->
         <section class="slide">
           <p class="eyebrow">A equipe</p>
           <h2>Cada especialista, sua fun&ccedil;&atilde;o</h2>
@@ -247,44 +313,88 @@
           <table class="roles">
             <thead><tr><th>Profissional</th><th>Fun&ccedil;&atilde;o no programa</th></tr></thead>
             <tbody>
-              <tr><td>M&eacute;dico Especialista</td><td>Emagrecimento e modula&ccedil;&atilde;o hormonal, avalia&ccedil;&atilde;o metab&oacute;lica, exames e prescri&ccedil;&atilde;o m&eacute;dica</td></tr>
-              <tr><td>Nutricionista</td><td>Plano alimentar baseado nos exames e na demanda do treino, com ajustes mensais</td></tr>
-              <tr><td>Personal Trainer</td><td>Treino de for&ccedil;a e cardio, avalia&ccedil;&atilde;o f&iacute;sica, progress&atilde;o de carga e acompanhamento presencial</td></tr>
+              <tr>
+                <td>M&eacute;dico Especialista</td>
+                <td>Emagrecimento e modula&ccedil;&atilde;o hormonal, avalia&ccedil;&atilde;o metab&oacute;lica, exames e prescri&ccedil;&atilde;o m&eacute;dica</td>
+              </tr>
+              <tr>
+                <td>Nutricionista</td>
+                <td>Plano alimentar baseado nos exames e na demanda do treino, com ajustes mensais</td>
+              </tr>
+              <tr>
+                <td>Personal Trainer</td>
+                <td>Treino de for&ccedil;a e cardio, avalia&ccedil;&atilde;o f&iacute;sica, progress&atilde;o de carga e acompanhamento presencial</td>
+              </tr>
             </tbody>
           </table>
           <p class="note">O diferencial n&atilde;o &eacute; a presen&ccedil;a dos tr&ecirc;s profissionais &mdash; &eacute; a comunica&ccedil;&atilde;o real entre eles e o protocolo compartilhado.</p>
         </section>
 
+        <!-- 8: DIFERENCIAIS -->
         <section class="slide">
           <p class="eyebrow">O que nos diferencia</p>
           <h2>Por que o Programa Tr&iacute;ade &eacute; &uacute;nico</h2>
           <hr class="title-rule" />
           <div class="items">
-            <div class="item"><span class="bead"></span><div><p class="item-title">Integra&ccedil;&atilde;o real</p><p class="item-desc">N&atilde;o &eacute; encaminhamento entre profissionais &mdash; &eacute; trabalho em equipe com metas e dados compartilhados.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Localiza&ccedil;&atilde;o &uacute;nica</p><p class="item-desc">Pipa atrai um p&uacute;blico com alto investimento em sa&uacute;de e bem-estar &mdash; turistas e moradores que valorizam qualidade.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Nicho bem definido</p><p class="item-desc">Mulheres 35+ em transi&ccedil;&atilde;o hormonal e homens com s&iacute;ndrome metab&oacute;lica &mdash; alta demanda, baixa oferta de solu&ccedil;&atilde;o integrada.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Potencial digital</p><p class="item-desc">Ap&oacute;s valida&ccedil;&atilde;o presencial, o programa pode se tornar um produto online escal&aacute;vel &mdash; com protocolos, conte&uacute;do e comunidade.</p></div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Integra&ccedil;&atilde;o real</p>
+              <p class="item-desc">N&atilde;o &eacute; encaminhamento entre profissionais &mdash; &eacute; trabalho em equipe com metas e dados compartilhados.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Localiza&ccedil;&atilde;o &uacute;nica</p>
+              <p class="item-desc">Pipa atrai um p&uacute;blico com alto investimento em sa&uacute;de e bem-estar &mdash; turistas e moradores que valorizam qualidade.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Nicho bem definido</p>
+              <p class="item-desc">Mulheres 35+ em transi&ccedil;&atilde;o hormonal e homens com s&iacute;ndrome metab&oacute;lica &mdash; alta demanda, baixa oferta de solu&ccedil;&atilde;o integrada.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Potencial digital</p>
+              <p class="item-desc">Ap&oacute;s valida&ccedil;&atilde;o presencial, o programa pode se tornar um produto online escal&aacute;vel &mdash; com protocolos, conte&uacute;do e comunidade.</p>
+            </div></div>
           </div>
         </section>
 
+        <!-- 9: MODELO -->
         <section class="slide">
           <p class="eyebrow">Como estruturar</p>
           <h2>Modelo financeiro &mdash; op&ccedil;&otilde;es</h2>
           <hr class="title-rule" />
-          <div class="option-card"><p class="opt-label">Op&ccedil;&atilde;o A</p><h3>Pacote &uacute;nico com divis&atilde;o interna</h3><p>O paciente paga um valor pelo programa completo. Os profissionais dividem internamente (ex: 40% m&eacute;dico &middot; 30% nutri &middot; 30% personal).</p></div>
-          <div class="option-card"><p class="opt-label">Op&ccedil;&atilde;o B</p><h3>Cada profissional cobra separado</h3><p>O paciente contrata cada profissional de forma independente, mas segue um protocolo integrado e compartilhado entre todos.</p></div>
+          <div class="option-card">
+            <p class="opt-label">Op&ccedil;&atilde;o A</p>
+            <h3>Pacote &uacute;nico com divis&atilde;o interna</h3>
+            <p>O paciente paga um valor pelo programa completo. Os profissionais dividem internamente (ex: 40% m&eacute;dico &middot; 30% nutri &middot; 30% personal).</p>
+          </div>
+          <div class="option-card">
+            <p class="opt-label">Op&ccedil;&atilde;o B</p>
+            <h3>Cada profissional cobra separado</h3>
+            <p>O paciente contrata cada profissional de forma independente, mas segue um protocolo integrado e compartilhado entre todos.</p>
+          </div>
           <p class="note">Sugest&atilde;o: come&ccedil;ar com a Op&ccedil;&atilde;o B para simplificar &mdash; e migrar para a Op&ccedil;&atilde;o A ap&oacute;s validar o piloto.</p>
         </section>
 
+        <!-- 10: PRÓXIMOS PASSOS -->
         <section class="slide">
           <p class="eyebrow">Para decidir hoje</p>
           <h2>Do conceito ao piloto</h2>
           <hr class="title-rule" />
           <div class="items">
-            <div class="item"><span class="bead"></span><div><p class="item-title">Definir p&uacute;blico priorit&aacute;rio</p><p class="item-desc">Mulheres 35+, homens ou ambos &mdash; come&ccedil;ar focado acelera os primeiros resultados.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Alinhar modelo financeiro</p><p class="item-desc">Escolher entre pacote &uacute;nico ou cobran&ccedil;a individual e definir os valores.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Montar protocolo m&iacute;nimo</p><p class="item-desc">Definir o fluxo b&aacute;sico: quais exames, protocolo de treino e padr&atilde;o alimentar inicial.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Grupo piloto em Pipa</p><p class="item-desc">5&ndash;10 pacientes para validar o programa e construir os primeiros casos de sucesso.</p></div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Definir p&uacute;blico priorit&aacute;rio</p>
+              <p class="item-desc">Mulheres 35+, homens ou ambos &mdash; come&ccedil;ar focado acelera os primeiros resultados.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Alinhar modelo financeiro</p>
+              <p class="item-desc">Escolher entre pacote &uacute;nico ou cobran&ccedil;a individual e definir os valores.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Montar protocolo m&iacute;nimo</p>
+              <p class="item-desc">Definir o fluxo b&aacute;sico: quais exames, protocolo de treino e padr&atilde;o alimentar inicial.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Grupo piloto em Pipa</p>
+              <p class="item-desc">5&ndash;10 pacientes para validar o programa e construir os primeiros casos de sucesso.</p>
+            </div></div>
           </div>
           <div class="closing-panel" style="margin-top:1.1rem;">
             <p>Vamos construir juntos o programa de sa&uacute;de mais completo de Pipa?</p>
@@ -294,17 +404,22 @@
 
       </div>
     </div>
+
     <div class="footer">
       <span class="label" id="labelText">Programa Tríade</span>
       <div class="dots" id="dots"></div>
       <span class="counter" id="counterText">01/10</span>
     </div>
+
     <div class="tapzone left" id="tapLeft" aria-hidden="true"></div>
     <div class="tapzone right" id="tapRight" aria-hidden="true"></div>
   </div>
+
   <button class="nav next" id="nextBtn" aria-label="Próximo slide">&#8250;</button>
 </div>
+
 <p class="hint">use as setas ← → , clique nas laterais do card ou arraste para navegar</p>
+
 <script>
   const labels = ["Capa","O Problema","A Proposta","Público-alvo","Diagnóstico","Protocolo","A Equipe","Diferenciais","Negócio","Próximos Passos"];
   const track = document.getElementById('track');
@@ -315,18 +430,50 @@
   const nextBtn = document.getElementById('nextBtn');
   const total = labels.length;
   let index = 0;
-  for(let i = 0; i < total; i++){const b = document.createElement('button');b.className = 'dot' + (i === 0 ? ' active' : '');b.setAttribute('aria-label', 'Ir para slide ' + (i + 1));b.addEventListener('click', () => goTo(i));dotsEl.appendChild(b);}
+
+  for(let i = 0; i < total; i++){
+    const b = document.createElement('button');
+    b.className = 'dot' + (i === 0 ? ' active' : '');
+    b.setAttribute('aria-label', 'Ir para slide ' + (i + 1));
+    b.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(b);
+  }
+
   function pad(n){ return n < 10 ? '0' + n : '' + n; }
-  function render(){track.style.transform = 'translateX(-' + (index * 100) + '%)';[...dotsEl.children].forEach((d, i) => d.classList.toggle('active', i === index));labelEl.textContent = labels[index];counterEl.textContent = pad(index + 1) + '/' + pad(total);prevBtn.disabled = index === 0;nextBtn.disabled = index === total - 1;}
-  function goTo(i){index = Math.max(0, Math.min(total - 1, i));render();}
+
+  function render(){
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    [...dotsEl.children].forEach((d, i) => d.classList.toggle('active', i === index));
+    labelEl.textContent = labels[index];
+    counterEl.textContent = pad(index + 1) + '/' + pad(total);
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === total - 1;
+  }
+
+  function goTo(i){
+    index = Math.max(0, Math.min(total - 1, i));
+    render();
+  }
+
   prevBtn.addEventListener('click', () => goTo(index - 1));
   nextBtn.addEventListener('click', () => goTo(index + 1));
   document.getElementById('tapLeft').addEventListener('click', () => goTo(index - 1));
   document.getElementById('tapRight').addEventListener('click', () => goTo(index + 1));
-  window.addEventListener('keydown', (e) => {if(e.key === 'ArrowRight') goTo(index + 1);if(e.key === 'ArrowLeft') goTo(index - 1);});
+
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'ArrowRight') goTo(index + 1);
+    if(e.key === 'ArrowLeft') goTo(index - 1);
+  });
+
   const card = document.getElementById('card');
   let touchStartX = null;
   card.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  card.addEventListener('touchend', (e) => {if(touchStartX === null) return;const dx = e.changedTouches[0].clientX - touchStartX;if(Math.abs(dx) > 40){ dx < 0 ? goTo(index + 1) : goTo(index - 1); }touchStartX = null;}, { passive: true });
+  card.addEventListener('touchend', (e) => {
+    if(touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(dx) > 40){ dx < 0 ? goTo(index + 1) : goTo(index - 1); }
+    touchStartX = null;
+  }, { passive: true });
+
   render();
 </script>

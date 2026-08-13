@@ -31,57 +31,96 @@
   }
 
   .stage{position:relative;display:flex;align-items:center;gap:.9rem;}
-  .card{position:relative;width:min(94vw,380px);aspect-ratio:9/16;max-height:min(78vh,780px);background:var(--paper);color:var(--ink);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 30px 60px -20px rgba(0,0,0,.55),0 10px 24px -12px rgba(0,0,0,.5);border:1px solid #00000012;}
+
+  .card{
+    position:relative;width:min(94vw,380px);aspect-ratio:9/16;max-height:min(78vh,780px);
+    background:var(--paper);color:var(--ink);border-radius:22px;overflow:hidden;
+    display:flex;flex-direction:column;
+    box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 30px 60px -20px rgba(0,0,0,.55),0 10px 24px -12px rgba(0,0,0,.5);
+    border:1px solid #00000012;
+  }
+
   .viewport{flex:1 1 auto;overflow:hidden;min-height:0;}
   .track{display:flex;height:100%;transition:transform .5s cubic-bezier(.65,0,.35,1);will-change:transform;}
   @media(prefers-reduced-motion:reduce){.track{transition:none;}}
-  .slide{flex:0 0 100%;height:100%;overflow-y:auto;padding:2.1rem 1.6rem 1.4rem;display:flex;flex-direction:column;scrollbar-width:thin;scrollbar-color:var(--line) transparent;}
+
+  .slide{
+    flex:0 0 100%;height:100%;overflow-y:auto;
+    padding:2.1rem 1.6rem 1.4rem;
+    display:flex;flex-direction:column;
+    scrollbar-width:thin;scrollbar-color:var(--line) transparent;
+  }
   .slide::-webkit-scrollbar{width:5px;}
   .slide::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px;}
+
   .eyebrow{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem;}
+
   h1,h2,h3{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;color:var(--green);margin:0;text-wrap:balance;}
+
   .title-rule{width:38px;height:2px;background:var(--accent);border:none;margin:.7rem 0 1.15rem;}
+
   p.body-text{font-size:.92rem;line-height:1.62;color:var(--ink);margin:0 0 .9rem;}
   p.body-text:last-child{margin-bottom:0;}
-  .lede{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-style:italic;font-size:1.1rem;line-height:1.55;color:var(--green-deep);text-wrap:balance;text-align:center;}
+
+  p.subtitle{font-style:italic;font-size:.88rem;line-height:1.5;color:var(--ink-soft);margin:.4rem 0 1rem;}
+
+  .lede{
+    font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+    font-style:italic;font-size:1.1rem;line-height:1.55;
+    color:var(--green-deep);text-wrap:balance;text-align:center;
+  }
+
   .items{display:flex;flex-direction:column;gap:.85rem;margin-top:.2rem;}
   .item{display:flex;gap:.65rem;align-items:flex-start;}
   .item .bead{width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:.52rem;flex:none;}
   .item-title{margin:0;font-weight:700;font-size:.87rem;color:var(--green-deep);}
   .item-desc{margin:.15rem 0 0;font-size:.83rem;line-height:1.5;color:var(--ink-soft);}
+
   .pillars{display:flex;gap:.4rem;margin:.9rem 0;}
-  .pillar{flex:1;border:1px solid var(--line);border-radius:11px;padding:.6rem .35rem;text-align:center;}
+  .pillar{
+    flex:1;border:1px solid var(--line);border-radius:11px;
+    padding:.6rem .35rem;text-align:center;
+  }
   .pillar .icon{font-size:1.1rem;display:block;margin-bottom:.25rem;}
   .pillar .pname{font-size:.62rem;font-weight:700;color:var(--green-deep);letter-spacing:.04em;text-transform:uppercase;display:block;margin-bottom:.18rem;}
   .pillar .psub{font-size:.62rem;color:var(--ink-soft);line-height:1.35;}
+
   .two-col{display:flex;gap:.65rem;margin-top:.5rem;}
   .col-box{flex:1;border:1px solid var(--line);border-radius:12px;padding:.8rem .75rem;}
   .col-box h3{font-size:.88rem;color:var(--green);margin:0 0 .5rem;}
   .col-box ul{margin:0;padding-left:1rem;}
   .col-box li{font-size:.78rem;line-height:1.5;color:var(--ink-soft);margin-bottom:.28rem;}
   .col-box li:last-child{margin-bottom:0;}
+
   table.roles{width:100%;border-collapse:collapse;margin-top:.4rem;font-size:.8rem;}
   table.roles thead th{background:var(--green);color:var(--paper-soft);text-align:left;font-weight:600;padding:.5rem .6rem;font-size:.7rem;letter-spacing:.02em;}
   table.roles tbody td{padding:.55rem .6rem;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.4;}
   table.roles tbody td:first-child{font-weight:700;color:var(--green-deep);width:36%;}
   table.roles tbody tr:last-child td{border-bottom:none;}
+
   .option-card{border:1px solid var(--line);border-radius:14px;padding:.9rem 1rem;margin-bottom:.6rem;}
   .option-card:last-of-type{margin-bottom:0;}
   .option-card .opt-label{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem;}
   .option-card h3{font-size:.93rem;color:var(--green-deep);margin:0 0 .3rem;}
   .option-card p{font-size:.82rem;line-height:1.5;color:var(--ink-soft);margin:0;}
+
   .note{font-size:.73rem;line-height:1.55;color:var(--ink-faint);margin-top:.85rem;font-style:italic;}
+
   .namecard{background:var(--paper-soft);border-radius:10px;padding:1.25rem 1rem;text-align:center;margin:0 0 1.1rem;}
   .namecard h1{font-size:1.75rem;letter-spacing:.02em;}
   .namecard .rule{width:34px;height:1px;background:var(--accent);border:none;margin:.5rem auto;}
   .namecard .role{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--green);font-weight:600;margin:0;}
+
   .cover-flex{flex:1;display:flex;flex-direction:column;justify-content:center;}
   .swipe-hint{text-align:center;color:var(--accent);font-size:.76rem;margin-top:auto;padding-top:1rem;}
+
   .team-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 .2rem;justify-content:center;}
   .tag{font-size:.6rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.28rem .65rem;border-radius:999px;background:var(--paper-alt);color:var(--green-deep);border:1px solid var(--line);}
+
   .closing-panel{border:1px solid var(--accent-soft);border-radius:14px;padding:1.2rem 1.1rem;text-align:center;}
   .closing-panel p{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-size:1rem;line-height:1.6;color:var(--green-deep);margin:0 0 .7rem;}
   .closing-panel .sig{font-size:.73rem;letter-spacing:.03em;color:var(--ink-soft);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+
   .footer{flex:0 0 auto;border-top:1px solid var(--line);background:var(--paper);padding:.7rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
   .footer .label{font-size:.64rem;letter-spacing:.05em;color:var(--ink-faint);min-width:64px;}
   .footer .counter{font-size:.64rem;letter-spacing:.05em;color:var(--ink-faint);min-width:34px;text-align:right;font-variant-numeric:tabular-nums;}
@@ -89,14 +128,17 @@
   .dot{width:5px;height:5px;border-radius:50%;background:var(--line);cursor:pointer;transition:all .25s ease;border:none;padding:0;}
   .dot.active{background:var(--accent);width:14px;border-radius:3px;}
   .dot:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
   .nav{width:38px;height:38px;border-radius:50%;border:1px solid var(--stage-line);background:#262C1D;color:#E8E2CE;font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;transition:background .2s ease,transform .15s ease;}
   .nav:hover{background:#2F3624;}
   .nav:active{transform:scale(.93);}
   .nav:focus-visible{outline:2px solid var(--accent-soft);outline-offset:2px;}
   .nav[disabled]{opacity:.3;cursor:default;}
+
   .tapzone{position:absolute;top:0;bottom:56px;width:32%;cursor:pointer;}
   .tapzone.left{left:0;}
   .tapzone.right{right:0;}
+
   @media(max-width:640px){.nav{display:none;}}
   .hint{font-size:.72rem;color:var(--ink-faint);letter-spacing:.02em;}
   @media(max-width:640px){.hint{display:none;}}
@@ -104,13 +146,19 @@
 
 <div class="stage">
   <button class="nav prev" id="prevBtn" aria-label="Slide anterior">&#8249;</button>
+
   <div class="card" id="card">
     <div class="viewport">
       <div class="track" id="track">
 
+        <!-- 1: CAPA -->
         <section class="slide">
           <div class="cover-flex">
-            <div class="namecard"><h1>Programa Elo</h1><hr class="rule" /><p class="role">Proposta de Parceria Multidisciplinar</p></div>
+            <div class="namecard">
+              <h1>Programa Elo</h1>
+              <hr class="rule" />
+              <p class="role">Proposta de Parceria Multidisciplinar</p>
+            </div>
             <p class="lede">Emagrecimento, recomposi&ccedil;&atilde;o corporal e est&eacute;tica integrada &mdash; quatro especialistas, um protocolo, um resultado.</p>
             <div class="team-tags">
               <span class="tag">M&eacute;dico Especialista</span>
@@ -123,97 +171,244 @@
           <p class="swipe-hint">deslize para ver a proposta &#8595;</p>
         </section>
 
+        <!-- 2: O PROBLEMA -->
         <section class="slide">
-          <p class="eyebrow">O cen&aacute;rio atual</p><h2>Por que o tratamento isolado tem limite</h2><hr class="title-rule" />
+          <p class="eyebrow">O cen&aacute;rio atual</p>
+          <h2>Por que o tratamento isolado tem limite</h2>
+          <hr class="title-rule" />
           <div class="items">
-            <div class="item"><span class="bead"></span><div><p class="item-title">Causa cl&iacute;nica invis&iacute;vel</p><p class="item-desc">Resist&ecirc;ncia insul&iacute;nica, hipotireoidismo e altera&ccedil;&otilde;es hormonais n&atilde;o s&atilde;o tratadas pelo treino nem pela dieta isoladamente.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Perda de m&uacute;sculo</p><p class="item-desc">Dieta sem prescri&ccedil;&atilde;o de treino de for&ccedil;a adequado acelera a perda de massa magra &mdash; o oposto do objetivo.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Treino sem base cl&iacute;nica</p><p class="item-desc">Exerc&iacute;cio sem protocolo nutricional e sem diagn&oacute;stico gera resultados mais lentos e menos sustent&aacute;veis.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Quatro atendimentos, zero integra&ccedil;&atilde;o</p><p class="item-desc">Cada especialista trabalha com informa&ccedil;&otilde;es parciais. O paciente paga por v&aacute;rios tratamentos e recebe menos do que a soma deles.</p></div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Causa cl&iacute;nica invis&iacute;vel</p>
+              <p class="item-desc">Resist&ecirc;ncia insul&iacute;nica, hipotireoidismo e altera&ccedil;&otilde;es hormonais n&atilde;o s&atilde;o tratadas pelo treino nem pela dieta isoladamente.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Perda de m&uacute;sculo</p>
+              <p class="item-desc">Dieta sem prescri&ccedil;&atilde;o de treino de for&ccedil;a adequado acelera a perda de massa magra &mdash; o oposto do objetivo.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Treino sem base cl&iacute;nica</p>
+              <p class="item-desc">Exerc&iacute;cio sem protocolo nutricional e sem diagn&oacute;stico gera resultados mais lentos e menos sustent&aacute;veis.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Quatro atendimentos, zero integra&ccedil;&atilde;o</p>
+              <p class="item-desc">Cada especialista trabalha com informa&ccedil;&otilde;es parciais. O paciente paga por v&aacute;rios tratamentos e recebe menos do que a soma deles.</p>
+            </div></div>
           </div>
         </section>
 
+        <!-- 3: A PROPOSTA -->
         <section class="slide">
-          <p class="eyebrow">A solu&ccedil;&atilde;o</p><h2>Um protocolo, quatro especialistas</h2><hr class="title-rule" />
+          <p class="eyebrow">A solu&ccedil;&atilde;o</p>
+          <h2>Um protocolo, quatro especialistas</h2>
+          <hr class="title-rule" />
           <p class="body-text">O paciente n&atilde;o recebe quatro atendimentos separados. Recebe um programa integrado, onde m&eacute;dico, nutricionista, personal e biom&eacute;dica trabalham com as mesmas metas e os mesmos dados.</p>
           <div class="pillars">
-            <div class="pillar"><span class="icon">&#129658;</span><span class="pname">Cl&iacute;nico</span><span class="psub">Diagn&oacute;stico hormonal e metab&oacute;lico</span></div>
-            <div class="pillar"><span class="icon">&#127793;</span><span class="pname">Nutri&shy;cional</span><span class="psub">Plano alimentar baseado em exames</span></div>
-            <div class="pillar"><span class="icon">&#128170;</span><span class="pname">F&iacute;sico</span><span class="psub">Treino individualizado e progressivo</span></div>
-            <div class="pillar"><span class="icon">&#10024;</span><span class="pname">Est&eacute;tico</span><span class="psub">Tratamentos de pele e composi&ccedil;&atilde;o</span></div>
+            <div class="pillar">
+              <span class="icon">&#129658;</span>
+              <span class="pname">Cl&iacute;nico</span>
+              <span class="psub">Diagn&oacute;stico hormonal e metab&oacute;lico</span>
+            </div>
+            <div class="pillar">
+              <span class="icon">&#127793;</span>
+              <span class="pname">Nutri&shy;cional</span>
+              <span class="psub">Plano alimentar baseado em exames</span>
+            </div>
+            <div class="pillar">
+              <span class="icon">&#128170;</span>
+              <span class="pname">F&iacute;sico</span>
+              <span class="psub">Treino individualizado e progressivo</span>
+            </div>
+            <div class="pillar">
+              <span class="icon">&#10024;</span>
+              <span class="pname">Est&eacute;tico</span>
+              <span class="psub">Tratamentos de pele e composi&ccedil;&atilde;o</span>
+            </div>
           </div>
           <p class="body-text">A integra&ccedil;&atilde;o real &mdash; comunica&ccedil;&atilde;o ativa entre os profissionais, protocolo compartilhado &mdash; &eacute; o que transforma quatro atendimentos em um programa.</p>
         </section>
 
+        <!-- 4: PÚBLICO-ALVO -->
         <section class="slide">
-          <p class="eyebrow">Para quem</p><h2>P&uacute;blico-alvo do Programa Elo</h2><hr class="title-rule" />
+          <p class="eyebrow">Para quem</p>
+          <h2>P&uacute;blico-alvo do Programa Elo</h2>
+          <hr class="title-rule" />
           <div class="two-col">
-            <div class="col-box"><h3>Mulheres 35&ndash;55</h3><ul><li>Perimenopausa e menopausa</li><li>Resist&ecirc;ncia &agrave; perda de peso</li><li>Perda de massa muscular</li><li>Flacidez e qualidade de pele</li><li>Altera&ccedil;&otilde;es hormonais</li></ul></div>
-            <div class="col-box"><h3>Homens 35+</h3><ul><li>S&iacute;ndrome metab&oacute;lica</li><li>Sobrepeso e gordura visceral</li><li>Resist&ecirc;ncia insul&iacute;nica</li><li>Gordura localizada</li><li>Dificuldade de manuten&ccedil;&atilde;o</li></ul></div>
+            <div class="col-box">
+              <h3>Mulheres 35&ndash;55</h3>
+              <ul>
+                <li>Perimenopausa e menopausa</li>
+                <li>Resist&ecirc;ncia &agrave; perda de peso</li>
+                <li>Perda de massa muscular</li>
+                <li>Flacidez e qualidade de pele</li>
+                <li>Altera&ccedil;&otilde;es hormonais</li>
+              </ul>
+            </div>
+            <div class="col-box">
+              <h3>Homens 35+</h3>
+              <ul>
+                <li>S&iacute;ndrome metab&oacute;lica</li>
+                <li>Sobrepeso e gordura visceral</li>
+                <li>Resist&ecirc;ncia insul&iacute;nica</li>
+                <li>Gordura localizada</li>
+                <li>Dificuldade de manuten&ccedil;&atilde;o</li>
+              </ul>
+            </div>
           </div>
           <p class="note">Pipa concentra um p&uacute;blico com perfil de investimento em qualidade de vida &mdash; turistas de alto padr&atilde;o e moradores com consci&ecirc;ncia de sa&uacute;de.</p>
         </section>
 
+        <!-- 5: FASE 1 -->
         <section class="slide">
-          <p class="eyebrow">Fase 1 &middot; Semana 1</p><h2>Diagn&oacute;stico integrado</h2><hr class="title-rule" />
+          <p class="eyebrow">Fase 1 &middot; Semana 1</p>
+          <h2>Diagn&oacute;stico integrado</h2>
+          <hr class="title-rule" />
           <div class="items">
-            <div class="item"><span class="bead"></span><div><p class="item-title">Consulta m&eacute;dica</p><p class="item-desc">Avalia&ccedil;&atilde;o cl&iacute;nica completa + solicita&ccedil;&atilde;o de exames laboratoriais (horm&ocirc;nios, glicemia, lipidograma).</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Avalia&ccedil;&atilde;o f&iacute;sica</p><p class="item-desc">Avalia&ccedil;&atilde;o postural, circunfer&ecirc;ncias, composi&ccedil;&atilde;o corporal e condicionamento.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Anamnese nutricional</p><p class="item-desc">H&aacute;bitos alimentares, prefer&ecirc;ncias, intol&ecirc;r&acirc;ncias e rela&ccedil;&atilde;o com a comida.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Avalia&ccedil;&atilde;o est&eacute;tica</p><p class="item-desc">Mapeamento corporal pela biom&eacute;dica: qualidade de pele, gordura localizada, flacidez e &aacute;reas priorit&aacute;rias.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Alinhamento entre profissionais</p><p class="item-desc">Reuni&atilde;o para cruzar os dados e definir o protocolo personalizado do paciente.</p></div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Consulta m&eacute;dica</p>
+              <p class="item-desc">Avalia&ccedil;&atilde;o cl&iacute;nica completa + solicita&ccedil;&atilde;o de exames laboratoriais (horm&ocirc;nios, glicemia, lipidograma).</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Avalia&ccedil;&atilde;o f&iacute;sica</p>
+              <p class="item-desc">Avalia&ccedil;&atilde;o postural, circunfer&ecirc;ncias, composi&ccedil;&atilde;o corporal e condicionamento.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Anamnese nutricional</p>
+              <p class="item-desc">H&aacute;bitos alimentares, prefer&ecirc;ncias, intol&ecirc;r&acirc;ncias e rela&ccedil;&atilde;o com a comida.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Avalia&ccedil;&atilde;o est&eacute;tica</p>
+              <p class="item-desc">Mapeamento corporal pela biom&eacute;dica: qualidade de pele, gordura localizada, flacidez e &aacute;reas priorit&aacute;rias.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Alinhamento entre profissionais</p>
+              <p class="item-desc">Reuni&atilde;o para cruzar os dados e definir o protocolo personalizado do paciente.</p>
+            </div></div>
           </div>
         </section>
 
+        <!-- 6: FASE 2 -->
         <section class="slide">
-          <p class="eyebrow">Fase 2 &middot; Meses 1&ndash;3</p><h2>Protocolo ativo</h2><hr class="title-rule" />
+          <p class="eyebrow">Fase 2 &middot; Meses 1&ndash;6</p>
+          <h2>Protocolo ativo</h2>
+          <hr class="title-rule" />
           <div class="items">
-            <div class="item"><span class="bead"></span><div><p class="item-title">Treino presencial 2&ndash;3x/semana</p><p class="item-desc">Treino de for&ccedil;a e cardio estrat&eacute;gico, com progress&atilde;o de carga e acompanhamento direto.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Plano alimentar</p><p class="item-desc">Desenvolvido com base nos exames e na demanda do treino, atualizado mensalmente.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Retorno m&eacute;dico</p><p class="item-desc">Retorno com exames em 30&ndash;45 dias &mdash; ajuste de protocolo cl&iacute;nico se necess&aacute;rio.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Procedimentos est&eacute;ticos</p><p class="item-desc">Tratamentos alinhados ao momento do protocolo &mdash; bioestimuladores, drenagem, tratamentos de pele e gordura localizada.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Comunica&ccedil;&atilde;o cont&iacute;nua</p><p class="item-desc">Protocolo compartilhado entre os quatro profissionais &mdash; dados relevantes de cada &aacute;rea em tempo real.</p></div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Treino presencial 3x/semana</p>
+              <p class="item-desc">Treino de for&ccedil;a e cardio estrat&eacute;gico, com progress&atilde;o de carga e acompanhamento direto.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Plano alimentar</p>
+              <p class="item-desc">Desenvolvido com base nos exames e na demanda do treino, atualizado mensalmente.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Retorno m&eacute;dico</p>
+              <p class="item-desc">Retorno com exames em 30&ndash;45 dias &mdash; ajuste de protocolo cl&iacute;nico se necess&aacute;rio.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Procedimentos est&eacute;ticos</p>
+              <p class="item-desc">Tratamentos alinhados ao momento do protocolo &mdash; bioestimuladores, drenagem, tratamentos de pele e gordura localizada.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Comunica&ccedil;&atilde;o cont&iacute;nua</p>
+              <p class="item-desc">Protocolo compartilhado entre os quatro profissionais &mdash; dados relevantes de cada &aacute;rea em tempo real.</p>
+            </div></div>
           </div>
         </section>
 
+        <!-- 7: PAPÉIS -->
         <section class="slide">
-          <p class="eyebrow">A equipe</p><h2>Cada especialista, sua fun&ccedil;&atilde;o</h2><hr class="title-rule" />
+          <p class="eyebrow">A equipe</p>
+          <h2>Cada especialista, sua fun&ccedil;&atilde;o</h2>
+          <hr class="title-rule" />
           <table class="roles">
             <thead><tr><th>Profissional</th><th>Fun&ccedil;&atilde;o no programa</th></tr></thead>
             <tbody>
-              <tr><td>M&eacute;dico Especialista</td><td>Emagrecimento e modula&ccedil;&atilde;o hormonal, avalia&ccedil;&atilde;o metab&oacute;lica, exames e prescri&ccedil;&atilde;o m&eacute;dica</td></tr>
-              <tr><td>Nutricionista</td><td>Plano alimentar baseado nos exames e na demanda do treino, com ajustes mensais</td></tr>
-              <tr><td>Personal Trainer</td><td>Treino de for&ccedil;a e cardio, avalia&ccedil;&atilde;o f&iacute;sica, progress&atilde;o de carga e acompanhamento presencial</td></tr>
-              <tr><td>Biom&eacute;dica</td><td>Tratamentos est&eacute;ticos alinhados ao protocolo &mdash; bioestimuladores, pele, drenagem e composi&ccedil;&atilde;o corporal</td></tr>
+              <tr>
+                <td>M&eacute;dico Especialista</td>
+                <td>Emagrecimento e modula&ccedil;&atilde;o hormonal, avalia&ccedil;&atilde;o metab&oacute;lica, exames e prescri&ccedil;&atilde;o m&eacute;dica</td>
+              </tr>
+              <tr>
+                <td>Nutricionista</td>
+                <td>Plano alimentar baseado nos exames e na demanda do treino, com ajustes mensais</td>
+              </tr>
+              <tr>
+                <td>Personal Trainer</td>
+                <td>Treino de for&ccedil;a e cardio, avalia&ccedil;&atilde;o f&iacute;sica, progress&atilde;o de carga e acompanhamento presencial</td>
+              </tr>
+              <tr>
+                <td>Biom&eacute;dica</td>
+                <td>Tratamentos est&eacute;ticos alinhados ao protocolo &mdash; bioestimuladores, pele, drenagem e composi&ccedil;&atilde;o corporal</td>
+              </tr>
             </tbody>
           </table>
           <p class="note">O diferencial n&atilde;o &eacute; a presen&ccedil;a dos quatro profissionais &mdash; &eacute; a comunica&ccedil;&atilde;o real entre eles e o protocolo compartilhado.</p>
         </section>
 
+        <!-- 8: DIFERENCIAIS -->
         <section class="slide">
-          <p class="eyebrow">O que nos diferencia</p><h2>Por que o Programa Elo &eacute; &uacute;nico</h2><hr class="title-rule" />
+          <p class="eyebrow">O que nos diferencia</p>
+          <h2>Por que o Programa Elo &eacute; &uacute;nico</h2>
+          <hr class="title-rule" />
           <div class="items">
-            <div class="item"><span class="bead"></span><div><p class="item-title">Integra&ccedil;&atilde;o real</p><p class="item-desc">N&atilde;o &eacute; encaminhamento entre profissionais &mdash; &eacute; trabalho em equipe com metas e dados compartilhados.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Resultado al&eacute;m da balan&ccedil;a</p><p class="item-desc">Recomposi&ccedil;&atilde;o corporal, pele e est&eacute;tica inclu&iacute;das &mdash; o paciente sente e v&ecirc; o resultado em mais dimens&otilde;es.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Localiza&ccedil;&atilde;o &uacute;nica</p><p class="item-desc">Pipa atrai um p&uacute;blico com alto investimento em sa&uacute;de e bem-estar &mdash; turistas e moradores que valorizam qualidade.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Potencial digital</p><p class="item-desc">Ap&oacute;s valida&ccedil;&atilde;o presencial, o programa pode se tornar um produto online escal&aacute;vel &mdash; com protocolos, conte&uacute;do e comunidade.</p></div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Integra&ccedil;&atilde;o real</p>
+              <p class="item-desc">N&atilde;o &eacute; encaminhamento entre profissionais &mdash; &eacute; trabalho em equipe com metas e dados compartilhados.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Resultado al&eacute;m da balan&ccedil;a</p>
+              <p class="item-desc">Recomposi&ccedil;&atilde;o corporal, pele e est&eacute;tica inclu&iacute;das &mdash; o paciente sente e v&ecirc; o resultado em mais dimens&otilde;es.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Localiza&ccedil;&atilde;o &uacute;nica</p>
+              <p class="item-desc">Pipa atrai um p&uacute;blico com alto investimento em sa&uacute;de e bem-estar &mdash; turistas e moradores que valorizam qualidade.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Potencial digital</p>
+              <p class="item-desc">Ap&oacute;s valida&ccedil;&atilde;o presencial, o programa pode se tornar um produto online escal&aacute;vel &mdash; com protocolos, conte&uacute;do e comunidade.</p>
+            </div></div>
           </div>
         </section>
 
+        <!-- 9: MODELO -->
         <section class="slide">
-          <p class="eyebrow">Como estruturar</p><h2>Modelo financeiro &mdash; op&ccedil;&otilde;es</h2><hr class="title-rule" />
-          <div class="option-card"><p class="opt-label">Op&ccedil;&atilde;o A</p><h3>Pacote &uacute;nico com divis&atilde;o interna</h3><p>O paciente paga um valor pelo programa completo. Os quatro profissionais dividem internamente conforme participa&ccedil;&atilde;o (ex: 35% m&eacute;dico &middot; 20% nutri &middot; 25% personal &middot; 20% biom&eacute;dica).</p></div>
-          <div class="option-card"><p class="opt-label">Op&ccedil;&atilde;o B</p><h3>Cada profissional cobra separado</h3><p>O paciente contrata cada profissional de forma independente, mas segue um protocolo integrado e compartilhado entre todos.</p></div>
+          <p class="eyebrow">Como estruturar</p>
+          <h2>Modelo financeiro &mdash; op&ccedil;&otilde;es</h2>
+          <hr class="title-rule" />
+          <div class="option-card">
+            <p class="opt-label">Op&ccedil;&atilde;o A</p>
+            <h3>Pacote &uacute;nico com divis&atilde;o interna</h3>
+            <p>O paciente paga um valor pelo programa completo. Os quatro profissionais dividem internamente conforme participa&ccedil;&atilde;o (ex: 35% m&eacute;dico &middot; 20% nutri &middot; 25% personal &middot; 20% biom&eacute;dica).</p>
+          </div>
+          <div class="option-card">
+            <p class="opt-label">Op&ccedil;&atilde;o B</p>
+            <h3>Cada profissional cobra separado</h3>
+            <p>O paciente contrata cada profissional de forma independente, mas segue um protocolo integrado e compartilhado entre todos.</p>
+          </div>
           <p class="note">Sugest&atilde;o: come&ccedil;ar com a Op&ccedil;&atilde;o B para simplificar &mdash; e migrar para a Op&ccedil;&atilde;o A ap&oacute;s validar o piloto.</p>
         </section>
 
+        <!-- 10: PRÓXIMOS PASSOS -->
         <section class="slide">
-          <p class="eyebrow">Para decidir hoje</p><h2>Do conceito ao piloto</h2><hr class="title-rule" />
+          <p class="eyebrow">Para decidir hoje</p>
+          <h2>Do conceito ao piloto</h2>
+          <hr class="title-rule" />
           <div class="items">
-            <div class="item"><span class="bead"></span><div><p class="item-title">Definir p&uacute;blico priorit&aacute;rio</p><p class="item-desc">Mulheres 35+, homens ou ambos &mdash; come&ccedil;ar focado acelera os primeiros resultados.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Alinhar modelo financeiro</p><p class="item-desc">Escolher entre pacote &uacute;nico ou cobran&ccedil;a individual e definir a divis&atilde;o entre os quatro profissionais.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Montar protocolo m&iacute;nimo</p><p class="item-desc">Definir o fluxo b&aacute;sico: exames, protocolo de treino, padr&atilde;o alimentar e procedimentos est&eacute;ticos iniciais.</p></div></div>
-            <div class="item"><span class="bead"></span><div><p class="item-title">Grupo piloto em Pipa</p><p class="item-desc">5&ndash;10 pacientes para validar o programa e construir os primeiros casos de sucesso.</p></div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Definir p&uacute;blico priorit&aacute;rio</p>
+              <p class="item-desc">Mulheres 35+, homens ou ambos &mdash; come&ccedil;ar focado acelera os primeiros resultados.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Alinhar modelo financeiro</p>
+              <p class="item-desc">Escolher entre pacote &uacute;nico ou cobran&ccedil;a individual e definir a divis&atilde;o entre os quatro profissionais.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Montar protocolo m&iacute;nimo</p>
+              <p class="item-desc">Definir o fluxo b&aacute;sico: exames, protocolo de treino, padr&atilde;o alimentar e procedimentos est&eacute;ticos iniciais.</p>
+            </div></div>
+            <div class="item"><span class="bead"></span><div>
+              <p class="item-title">Grupo piloto em Pipa</p>
+              <p class="item-desc">5&ndash;10 pacientes para validar o programa e construir os primeiros casos de sucesso.</p>
+            </div></div>
           </div>
           <div class="closing-panel" style="margin-top:1rem;">
             <p>Vamos construir juntos o programa de sa&uacute;de mais completo de Pipa?</p>
@@ -223,17 +418,22 @@
 
       </div>
     </div>
+
     <div class="footer">
       <span class="label" id="labelText">Programa Elo</span>
       <div class="dots" id="dots"></div>
       <span class="counter" id="counterText">01/10</span>
     </div>
+
     <div class="tapzone left" id="tapLeft" aria-hidden="true"></div>
     <div class="tapzone right" id="tapRight" aria-hidden="true"></div>
   </div>
+
   <button class="nav next" id="nextBtn" aria-label="Próximo slide">&#8250;</button>
 </div>
+
 <p class="hint">use as setas ← → , clique nas laterais do card ou arraste para navegar</p>
+
 <script>
   const labels = ["Capa","O Problema","A Proposta","Público-alvo","Diagnóstico","Protocolo","A Equipe","Diferenciais","Negócio","Próximos Passos"];
   const track = document.getElementById('track');
@@ -244,18 +444,50 @@
   const nextBtn = document.getElementById('nextBtn');
   const total = labels.length;
   let index = 0;
-  for(let i = 0; i < total; i++){const b = document.createElement('button');b.className = 'dot' + (i === 0 ? ' active' : '');b.setAttribute('aria-label', 'Ir para slide ' + (i + 1));b.addEventListener('click', () => goTo(i));dotsEl.appendChild(b);}
+
+  for(let i = 0; i < total; i++){
+    const b = document.createElement('button');
+    b.className = 'dot' + (i === 0 ? ' active' : '');
+    b.setAttribute('aria-label', 'Ir para slide ' + (i + 1));
+    b.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(b);
+  }
+
   function pad(n){ return n < 10 ? '0' + n : '' + n; }
-  function render(){track.style.transform = 'translateX(-' + (index * 100) + '%)';[...dotsEl.children].forEach((d, i) => d.classList.toggle('active', i === index));labelEl.textContent = labels[index];counterEl.textContent = pad(index + 1) + '/' + pad(total);prevBtn.disabled = index === 0;nextBtn.disabled = index === total - 1;}
-  function goTo(i){index = Math.max(0, Math.min(total - 1, i));render();}
+
+  function render(){
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    [...dotsEl.children].forEach((d, i) => d.classList.toggle('active', i === index));
+    labelEl.textContent = labels[index];
+    counterEl.textContent = pad(index + 1) + '/' + pad(total);
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === total - 1;
+  }
+
+  function goTo(i){
+    index = Math.max(0, Math.min(total - 1, i));
+    render();
+  }
+
   prevBtn.addEventListener('click', () => goTo(index - 1));
   nextBtn.addEventListener('click', () => goTo(index + 1));
   document.getElementById('tapLeft').addEventListener('click', () => goTo(index - 1));
   document.getElementById('tapRight').addEventListener('click', () => goTo(index + 1));
-  window.addEventListener('keydown', (e) => {if(e.key === 'ArrowRight') goTo(index + 1);if(e.key === 'ArrowLeft') goTo(index - 1);});
+
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'ArrowRight') goTo(index + 1);
+    if(e.key === 'ArrowLeft') goTo(index - 1);
+  });
+
   const card = document.getElementById('card');
   let touchStartX = null;
   card.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  card.addEventListener('touchend', (e) => {if(touchStartX === null) return;const dx = e.changedTouches[0].clientX - touchStartX;if(Math.abs(dx) > 40){ dx < 0 ? goTo(index + 1) : goTo(index - 1); }touchStartX = null;}, { passive: true });
+  card.addEventListener('touchend', (e) => {
+    if(touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(dx) > 40){ dx < 0 ? goTo(index + 1) : goTo(index - 1); }
+    touchStartX = null;
+  }, { passive: true });
+
   render();
 </script>
