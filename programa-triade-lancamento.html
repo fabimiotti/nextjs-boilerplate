@@ -1,0 +1,357 @@
+<!doctype html>
+<meta charset="UTF-8">
+<title>Programa Tríade</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --paper:#F4EFE3;
+    --paper-soft:#FBF8F1;
+    --paper-alt:#EDE6D4;
+    --ink:#2C2A22;
+    --ink-soft:#736C58;
+    --ink-faint:#A39D89;
+    --green:#3B4630;
+    --green-deep:#2E3826;
+    --accent:#BD6B3B;
+    --accent-soft:#D08F62;
+    --line:#DED2B8;
+    --stage:#1E2318;
+    --stage-line:#33392A;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;min-height:100vh;
+    background:radial-gradient(ellipse 900px 600px at 50% -10%, #2B3222 0%, var(--stage) 55%);
+    color:var(--paper);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:1rem;padding:2rem 1rem;
+  }
+
+  .stage{position:relative;display:flex;align-items:center;gap:.9rem;}
+
+  .card{
+    position:relative;width:min(94vw,380px);aspect-ratio:9/16;max-height:min(84vh,800px);
+    background:var(--paper);color:var(--ink);border-radius:22px;overflow:hidden;
+    display:flex;flex-direction:column;
+    box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 30px 60px -20px rgba(0,0,0,.55),0 10px 24px -12px rgba(0,0,0,.5);
+    border:1px solid #00000012;
+  }
+
+  .viewport{flex:1 1 auto;overflow:hidden;min-height:0;}
+  .track{display:flex;height:100%;transition:transform .5s cubic-bezier(.65,0,.35,1);will-change:transform;}
+  @media(prefers-reduced-motion:reduce){.track{transition:none;}}
+
+  .slide{
+    flex:0 0 100%;height:100%;overflow:hidden;
+    padding:1.7rem 1.5rem 1.1rem;
+    display:flex;flex-direction:column;
+  }
+
+  .eyebrow{font-size:.63rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .38rem;}
+  h1,h2{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;color:var(--green);margin:0;text-wrap:balance;}
+  h2{font-size:1.18rem;}
+  .title-rule{width:32px;height:2px;background:var(--accent);border:none;margin:.5rem 0 .85rem;}
+
+  .cover-flex{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.7rem;}
+  .namecard{background:var(--paper-soft);border-radius:11px;padding:1.1rem 1rem;text-align:center;}
+  .namecard h1{font-size:1.75rem;letter-spacing:.01em;}
+  .namecard .rule{width:30px;height:1px;background:var(--accent);border:none;margin:.45rem auto .55rem;}
+  .namecard .tagline{font-size:.82rem;line-height:1.52;color:var(--ink-soft);font-style:italic;margin:0;}
+  .team-pills{display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center;}
+  .pill{font-size:.59rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:.27rem .62rem;border-radius:999px;background:var(--paper-alt);color:var(--green-deep);border:1px solid var(--line);}
+  .badges{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;}
+  .badge{font-size:.63rem;font-weight:700;letter-spacing:.04em;padding:.28rem .68rem;border-radius:999px;background:var(--green);color:var(--paper-soft);}
+  .swipe-hint{text-align:center;color:var(--accent);font-size:.72rem;margin-top:auto;}
+
+  .check-list{display:flex;flex-direction:column;gap:.7rem;margin-top:.1rem;}
+  .check-item{display:flex;gap:.5rem;align-items:flex-start;}
+  .check-icon{width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;margin-top:.1rem;}
+  .check-text{font-size:.85rem;line-height:1.45;color:var(--ink);}
+
+  .profiles{display:flex;flex-direction:column;gap:.45rem;margin-top:.2rem;}
+  .profile{display:flex;align-items:center;gap:.65rem;border:1px solid var(--line);border-radius:12px;padding:.55rem .75rem;}
+  .profile-icon{font-size:1.35rem;flex:none;width:30px;text-align:center;}
+  .profile-name{font-size:.86rem;font-weight:700;color:var(--green-deep);margin:0;}
+  .profile-role{font-size:.72rem;color:var(--ink-soft);margin:.08rem 0 0;}
+  .profile-cred{font-size:.64rem;color:var(--ink-faint);letter-spacing:.02em;margin:.06rem 0 0;}
+  .profile-note{font-size:.71rem;color:var(--ink-faint);font-style:italic;margin-top:.5rem;text-align:center;}
+
+  .steps{display:flex;flex-direction:column;gap:.48rem;margin-top:.2rem;}
+  .step{display:flex;gap:.55rem;align-items:center;}
+  .step-num{width:22px;height:22px;border-radius:50%;background:var(--green);color:var(--paper-soft);font-size:.67rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;}
+  .step-text{font-size:.83rem;color:var(--ink);line-height:1.3;}
+
+  .includes{display:flex;flex-direction:column;gap:.62rem;margin-top:.2rem;}
+  .inc-item{display:flex;gap:.52rem;align-items:flex-start;}
+  .inc-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:.45rem;flex:none;}
+  .inc-title{font-size:.85rem;font-weight:700;color:var(--green-deep);margin:0;}
+  .inc-sub{font-size:.74rem;color:var(--ink-soft);margin:.07rem 0 0;line-height:1.35;}
+
+  .price-boxes{display:flex;flex-direction:column;gap:.48rem;margin-top:.3rem;}
+  .price-box{border:1px solid var(--line);border-radius:14px;padding:.75rem 1rem;}
+  .price-box.promo{border-color:var(--accent);background:rgba(189,107,59,.06);}
+  .price-box-label{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 .22rem;}
+  .price-main{font-size:1.5rem;font-weight:700;color:var(--green-deep);font-variant-numeric:tabular-nums;line-height:1;}
+  .price-parcel{font-size:.79rem;color:var(--ink-soft);margin:.18rem 0 0;}
+  .price-note{font-size:.68rem;color:var(--ink-faint);font-style:italic;margin-top:.58rem;}
+
+  .cta-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.65rem;}
+  .vagas-badge{display:inline-block;background:var(--accent);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:.32rem .8rem;border-radius:999px;align-self:center;}
+  .cta-panel{border:1px solid var(--accent-soft);border-radius:14px;padding:1.1rem;text-align:center;}
+  .cta-panel .quote{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-size:.95rem;line-height:1.58;color:var(--green-deep);margin:0 0 .65rem;}
+  .cta-panel .sig{font-size:.72rem;color:var(--ink-soft);margin:0;line-height:1.5;}
+  .cta-hint{font-size:.75rem;color:var(--ink-faint);text-align:center;font-style:italic;}
+
+  .footer{flex:0 0 auto;border-top:1px solid var(--line);background:var(--paper);padding:.62rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
+  .footer .label{font-size:.62rem;letter-spacing:.05em;color:var(--ink-faint);min-width:64px;}
+  .footer .counter{font-size:.62rem;letter-spacing:.05em;color:var(--ink-faint);min-width:30px;text-align:right;font-variant-numeric:tabular-nums;}
+  .dots{display:flex;gap:5px;}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--line);cursor:pointer;transition:all .25s ease;border:none;padding:0;}
+  .dot.active{background:var(--accent);width:14px;border-radius:3px;}
+  .dot:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  .nav{width:38px;height:38px;border-radius:50%;border:1px solid var(--stage-line);background:#262C1D;color:#E8E2CE;font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;transition:background .2s ease,transform .15s ease;}
+  .nav:hover{background:#2F3624;}
+  .nav:active{transform:scale(.93);}
+  .nav:focus-visible{outline:2px solid var(--accent-soft);outline-offset:2px;}
+  .nav[disabled]{opacity:.3;cursor:default;}
+
+  .tapzone{position:absolute;top:0;bottom:52px;width:32%;cursor:pointer;}
+  .tapzone.left{left:0;}
+  .tapzone.right{right:0;}
+
+  @media(max-width:640px){.nav{display:none;}}
+  .hint{font-size:.72rem;color:var(--ink-faint);letter-spacing:.02em;}
+  @media(max-width:640px){.hint{display:none;}}
+</style>
+
+<div class="stage">
+  <button class="nav prev" id="prevBtn" aria-label="Slide anterior">&#8249;</button>
+
+  <div class="card" id="card">
+    <div class="viewport">
+      <div class="track" id="track">
+
+        <!-- 1: CAPA -->
+        <section class="slide">
+          <div class="cover-flex">
+            <div class="namecard">
+              <h1>Programa Tr&iacute;ade</h1>
+              <hr class="rule" />
+              <p class="tagline">Emagrecimento e recomposi&ccedil;&atilde;o corporal com m&eacute;dico, nutricionista e personal &mdash; um protocolo integrado de 3 meses.</p>
+            </div>
+            <div class="team-pills">
+              <span class="pill">Dr. Vald&eacute;cio Lacerda</span>
+              <span class="pill">Fabi Miotti</span>
+              <span class="pill">Nutricionista</span>
+            </div>
+            <div class="badges">
+              <span class="badge">3 meses</span>
+              <span class="badge">3x/semana</span>
+              <span class="badge">Pipa &middot; RN</span>
+            </div>
+          </div>
+          <p class="swipe-hint">deslize para conhecer &#8595;</p>
+        </section>
+
+        <!-- 2: PARA QUEM É -->
+        <section class="slide">
+          <p class="eyebrow">Para quem &eacute;</p>
+          <h2>Voc&ecirc; quer&hellip;</h2>
+          <hr class="title-rule" />
+          <div class="check-list">
+            <div class="check-item"><span class="check-icon">✓</span><span class="check-text">Emagrecer com sa&uacute;de e resultado real, sem efeito sanfona</span></div>
+            <div class="check-item"><span class="check-icon">✓</span><span class="check-text">Entender por que seu corpo n&atilde;o responde &agrave; dieta e ao treino</span></div>
+            <div class="check-item"><span class="check-icon">✓</span><span class="check-text">M&eacute;dico, nutricionista e personal no mesmo protocolo</span></div>
+            <div class="check-item"><span class="check-icon">✓</span><span class="check-text">Perder gordura sem perder m&uacute;sculo</span></div>
+            <div class="check-item"><span class="check-icon">✓</span><span class="check-text">Acompanhamento cont&iacute;nuo &mdash; n&atilde;o s&oacute; uma consulta</span></div>
+          </div>
+        </section>
+
+        <!-- 3: A EQUIPE -->
+        <section class="slide">
+          <p class="eyebrow">Sua equipe</p>
+          <h2>Quem cuida de voc&ecirc;</h2>
+          <hr class="title-rule" />
+          <div class="profiles">
+            <div class="profile">
+              <span class="profile-icon">&#129658;</span>
+              <div>
+                <p class="profile-name">Dr. Vald&eacute;cio Lacerda</p>
+                <p class="profile-role">M&eacute;dico &middot; Emagrecimento e modul. hormonal</p>
+                <p class="profile-cred">CRM 12478</p>
+              </div>
+            </div>
+            <div class="profile">
+              <span class="profile-icon">&#128170;</span>
+              <div>
+                <p class="profile-name">Fabi Miotti</p>
+                <p class="profile-role">Personal Trainer &middot; Avalia&ccedil;&atilde;o f&iacute;sica presencial</p>
+                <p class="profile-cred">CREF 063792-G/SP</p>
+              </div>
+            </div>
+            <div class="profile">
+              <span class="profile-icon">&#127793;</span>
+              <div>
+                <p class="profile-name">Nutricionista</p>
+                <p class="profile-role">Plano alimentar &middot; Atendimento online</p>
+                <p class="profile-cred">Em breve</p>
+              </div>
+            </div>
+          </div>
+          <p class="profile-note">Tr&ecirc;s especialistas &mdash; um protocolo, as mesmas metas.</p>
+        </section>
+
+        <!-- 4: PRIMEIROS PASSOS -->
+        <section class="slide">
+          <p class="eyebrow">Como come&ccedil;a</p>
+          <h2>Primeiros passos</h2>
+          <hr class="title-rule" />
+          <div class="steps">
+            <div class="step"><span class="step-num">1</span><span class="step-text">Anamneses com m&eacute;dico, nutri e personal</span></div>
+            <div class="step"><span class="step-num">2</span><span class="step-text">Pedido de exames laboratoriais pelo m&eacute;dico</span></div>
+            <div class="step"><span class="step-num">3</span><span class="step-text">Avalia&ccedil;&atilde;o f&iacute;sica + fotos antes com a personal</span></div>
+            <div class="step"><span class="step-num">4</span><span class="step-text">Consulta m&eacute;dica com os exames em m&atilde;os</span></div>
+            <div class="step"><span class="step-num">5</span><span class="step-text">Reuni&atilde;o de estrat&eacute;gia entre os profissionais</span></div>
+            <div class="step"><span class="step-num">6</span><span class="step-text">In&iacute;cio: dieta + treinos personalizados</span></div>
+          </div>
+        </section>
+
+        <!-- 5: INCLUÍDO -->
+        <section class="slide">
+          <p class="eyebrow">3 meses completos</p>
+          <h2>O que est&aacute; inclu&iacute;do</h2>
+          <hr class="title-rule" />
+          <div class="includes">
+            <div class="inc-item"><span class="inc-dot"></span><div>
+              <p class="inc-title">Treinos presenciais 3x/semana</p>
+              <p class="inc-sub">For&ccedil;a e cardio com acompanhamento direto e progress&atilde;o de carga</p>
+            </div></div>
+            <div class="inc-item"><span class="inc-dot"></span><div>
+              <p class="inc-title">Dieta baseada nos seus exames</p>
+              <p class="inc-sub">Plano alimentar atualizado mensalmente pela nutricionista</p>
+            </div></div>
+            <div class="inc-item"><span class="inc-dot"></span><div>
+              <p class="inc-title">Reavalia&ccedil;&atilde;o mensal completa</p>
+              <p class="inc-sub">M&eacute;dico, nutricionista e personal &mdash; todo m&ecirc;s, em conjunto</p>
+            </div></div>
+            <div class="inc-item"><span class="inc-dot"></span><div>
+              <p class="inc-title">Suporte semanal por WhatsApp</p>
+              <p class="inc-sub">Acompanhamento cont&iacute;nuo entre as sess&otilde;es</p>
+            </div></div>
+          </div>
+        </section>
+
+        <!-- 6: INVESTIMENTO -->
+        <section class="slide">
+          <p class="eyebrow">Investimento</p>
+          <h2>Valores do programa</h2>
+          <hr class="title-rule" />
+          <div class="price-boxes">
+            <div class="price-box">
+              <p class="price-box-label">Valor regular</p>
+              <p class="price-main">R$&nbsp;5.400</p>
+              <p class="price-parcel">ou 3&times; de R$&nbsp;1.800</p>
+            </div>
+            <div class="price-box promo">
+              <p class="price-box-label">&#127991; Primeiros 5 pacientes &mdash; desconto exclusivo</p>
+              <p class="price-main">R$&nbsp;4.800</p>
+              <p class="price-parcel">ou 3&times; de R$&nbsp;1.600</p>
+            </div>
+          </div>
+          <p class="price-note">Vagas limitadas &middot; Promo&ccedil;&atilde;o v&aacute;lida apenas para os 5 primeiros inscritos</p>
+        </section>
+
+        <!-- 7: GARANTA SUA VAGA -->
+        <section class="slide">
+          <p class="eyebrow">Vagas abertas</p>
+          <h2>Garanta sua vaga</h2>
+          <hr class="title-rule" />
+          <div class="cta-wrap">
+            <span class="vagas-badge">&#127991; 5 vagas com desconto &mdash; R$&nbsp;600 a menos</span>
+            <div class="cta-panel">
+              <p class="quote">As primeiras 5 vagas t&ecirc;m desconto exclusivo. Entre em contato agora e garante o seu lugar no programa mais completo de Pipa.</p>
+              <p class="sig">Fabi Miotti &middot; CREF 063792-G/SP<br>Personal Trainer &middot; Pipa / RN</p>
+            </div>
+            <p class="cta-hint">Programa Tr&iacute;ade &middot; 3 meses &middot; 3x/semana &middot; Pipa/RN</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="label" id="labelText">Programa Tríade</span>
+      <div class="dots" id="dots"></div>
+      <span class="counter" id="counterText">01/07</span>
+    </div>
+
+    <div class="tapzone left" id="tapLeft" aria-hidden="true"></div>
+    <div class="tapzone right" id="tapRight" aria-hidden="true"></div>
+  </div>
+
+  <button class="nav next" id="nextBtn" aria-label="Próximo slide">&#8250;</button>
+</div>
+
+<p class="hint">use as setas ← → , clique nas laterais do card ou arraste para navegar</p>
+
+<script>
+  const labels = ["Apresentação","Para quem é","A Equipe","Primeiros Passos","Incluído","Investimento","Garanta sua vaga"];
+  const track = document.getElementById('track');
+  const dotsEl = document.getElementById('dots');
+  const labelEl = document.getElementById('labelText');
+  const counterEl = document.getElementById('counterText');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const total = labels.length;
+  let index = 0;
+
+  for(let i = 0; i < total; i++){
+    const b = document.createElement('button');
+    b.className = 'dot' + (i === 0 ? ' active' : '');
+    b.setAttribute('aria-label', 'Ir para slide ' + (i + 1));
+    b.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(b);
+  }
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+  function render(){
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    [...dotsEl.children].forEach((d, i) => d.classList.toggle('active', i === index));
+    labelEl.textContent = labels[index];
+    counterEl.textContent = pad(index + 1) + '/' + pad(total);
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === total - 1;
+  }
+
+  function goTo(i){
+    index = Math.max(0, Math.min(total - 1, i));
+    render();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(index - 1));
+  nextBtn.addEventListener('click', () => goTo(index + 1));
+  document.getElementById('tapLeft').addEventListener('click', () => goTo(index - 1));
+  document.getElementById('tapRight').addEventListener('click', () => goTo(index + 1));
+
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'ArrowRight') goTo(index + 1);
+    if(e.key === 'ArrowLeft') goTo(index - 1);
+  });
+
+  const card = document.getElementById('card');
+  let touchStartX = null;
+  card.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  card.addEventListener('touchend', (e) => {
+    if(touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(dx) > 40){ dx < 0 ? goTo(index + 1) : goTo(index - 1); }
+    touchStartX = null;
+  }, { passive: true });
+
+  render();
+</script>
