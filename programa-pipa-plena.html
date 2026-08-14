@@ -144,15 +144,21 @@
   .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:.38rem;margin-top:.3rem;}
   .price-grid .price-box{padding:.62rem .75rem;}
   .price-grid .price-main{font-size:1.2rem;}
-  .cta-vaga-badge{display:inline-block;background:var(--accent);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:.32rem .8rem;border-radius:999px;align-self:center;margin-top:.55rem;}
-  .cta-urgency{border:1px solid var(--accent-soft);border-radius:12px;padding:.75rem 1rem;text-align:center;margin-top:.45rem;}
-  .cta-urgency p{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-size:.85rem;line-height:1.5;color:var(--green-deep);margin:0;}
-  .cta-contacts{display:flex;flex-direction:column;gap:.3rem;margin-top:.5rem;}
+  .cta-vaga-badge{display:inline-block;background:var(--accent);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:.28rem .75rem;border-radius:999px;align-self:center;margin-top:.38rem;}
+  .cta-urgency{border:1px solid var(--accent-soft);border-radius:12px;padding:.55rem .9rem;text-align:center;margin-top:.35rem;}
+  .cta-urgency p{font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;font-size:.8rem;line-height:1.45;color:var(--green-deep);margin:0;}
+  .cta-contacts{display:flex;flex-direction:column;gap:.28rem;margin-top:.3rem;}
   .cta-contacts-label{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 .1rem;}
-  .contact-card{display:flex;align-items:center;gap:.6rem;padding:.48rem .75rem;background:var(--paper-alt);border-radius:10px;border:1px solid var(--line);}
+  .contact-card{display:flex;align-items:center;gap:.6rem;padding:.48rem .75rem;background:var(--paper-alt);border-radius:10px;border:1px solid var(--line);text-decoration:none;color:inherit;cursor:pointer;transition:background .18s ease,border-color .18s ease,transform .1s ease;}
+  .contact-card:hover{background:#E0D7C5;border-color:var(--accent-soft);}
+  .contact-card:active{transform:scale(.98);}
   .contact-icon{font-size:.88rem;flex:none;}
   .contact-org{font-size:.64rem;color:var(--ink-faint);margin:0;letter-spacing:.01em;}
   .contact-num{font-size:.82rem;font-weight:700;color:var(--green-deep);margin:.05rem 0 0;font-variant-numeric:tabular-nums;}
+  .wa-hint{font-size:.6rem;color:var(--ink-faint);text-align:center;margin:.25rem 0 0;letter-spacing:.02em;}
+  .cta-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--green);color:#F4EFE3;text-decoration:none;font-size:.85rem;font-weight:700;letter-spacing:.02em;padding:.6rem 1.1rem;border-radius:12px;margin-top:.38rem;transition:background .18s ease,transform .1s ease;}
+  .cta-btn:hover{background:var(--green-deep);}
+  .cta-btn:active{transform:scale(.97);}
 
   /* FOOTER */
   .footer{flex:0 0 auto;border-top:1px solid var(--line);background:var(--paper);padding:.62rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
@@ -405,22 +411,26 @@
           <div class="cta-urgency">
             <p>Apenas 5 vagas com desconto. Ap&oacute;s o preenchimento, novas vagas ser&atilde;o abertas conforme disponibilidade.</p>
           </div>
+          <a class="cta-btn" href="https://wa.me/5583986666488?text=Ol%C3%A1!%20Vi%20o%20Programa%20Pipa%20Plena%20e%20quero%20garantir%20minha%20vaga%20com%20desconto!" target="_blank" rel="noopener">
+            💬 Quero começar agora
+          </a>
           <div class="cta-contacts">
             <p class="cta-contacts-label">Garanta j&aacute; sua vaga:</p>
-            <div class="contact-card">
+            <a class="contact-card" href="https://wa.me/5583986666488?text=Ol%C3%A1!%20Vi%20o%20Programa%20Pipa%20Plena%20e%20quero%20garantir%20minha%20vaga%20com%20desconto!" target="_blank" rel="noopener">
               <span class="contact-icon">&#127973;</span>
               <div>
                 <p class="contact-org">Cl&iacute;nica Health Concept</p>
                 <p class="contact-num">+55 83 98666-6488</p>
               </div>
-            </div>
-            <div class="contact-card">
+            </a>
+            <a class="contact-card" href="https://wa.me/5584994696002?text=Ol%C3%A1!%20Vi%20o%20Programa%20Pipa%20Plena%20e%20quero%20garantir%20minha%20vaga%20com%20desconto!" target="_blank" rel="noopener">
               <span class="contact-icon">&#128170;</span>
               <div>
                 <p class="contact-org">Fabi Miotti &middot; Personal Trainer</p>
                 <p class="contact-num">+55 84 99469-6002</p>
               </div>
-            </div>
+            </a>
+            <p class="wa-hint">💬 Toque para abrir o WhatsApp</p>
           </div>
         </section>
 
