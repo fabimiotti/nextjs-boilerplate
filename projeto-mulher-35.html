@@ -78,7 +78,7 @@
   .cover-pro-spec{font-size:.63rem;color:var(--ink-soft);margin:.03rem 0 0;line-height:1.25;}
 
   /* PARA QUEM É */
-  .result-anchor{font-size:.72rem;color:var(--ink-faint);font-style:italic;line-height:1.45;margin-top:.55rem;padding:.45rem .6rem;border-left:2px solid var(--accent-soft);}
+  .result-anchor{font-size:.74rem;color:var(--ink-soft);font-style:italic;line-height:1.45;margin-top:.55rem;padding:.45rem .6rem;border-left:2px solid var(--accent-soft);}
   .location-note{font-size:.66rem;color:var(--ink-faint);margin-top:.38rem;line-height:1.4;}
   .check-lead{font-size:.8rem;color:var(--ink-soft);font-style:italic;margin:0 0 .6rem;line-height:1.4;}
   .check-list{display:flex;flex-direction:column;gap:.55rem;}
@@ -101,7 +101,7 @@
   .profile-role{font-size:.66rem;color:var(--accent);font-weight:600;margin:.06rem 0 .12rem;}
   .profile-desc{font-size:.67rem;color:var(--ink-soft);margin:0 0 .08rem;line-height:1.32;}
   .profile-cred{font-size:.56rem;color:var(--ink-faint);letter-spacing:.02em;margin:0;}
-  .profile-note{font-size:.63rem;color:var(--ink-faint);font-style:italic;margin-top:.18rem;text-align:center;}
+  .profile-note{font-size:.65rem;color:var(--ink-soft);font-style:italic;margin-top:.18rem;text-align:center;}
 
   /* STEPS */
   .steps{display:flex;flex-direction:column;gap:.32rem;margin-top:.1rem;}
@@ -122,6 +122,9 @@
   .includes{display:flex;flex-direction:column;gap:.45rem;margin-top:.15rem;}
   .inc-item{display:flex;gap:.52rem;align-items:flex-start;}
   .inc-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:.45rem;flex:none;}
+  .ninc-dot{width:6px;height:6px;border-radius:50%;background:var(--ink-faint);margin-top:.45rem;flex:none;}
+  .not-includes{display:flex;flex-direction:column;gap:.35rem;margin-top:.55rem;padding-top:.45rem;border-top:1px solid var(--line);}
+  .not-inc-label{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 .1rem;}
   .inc-title{font-size:.85rem;font-weight:700;color:var(--green-deep);margin:0;}
   .inc-sub{font-size:.74rem;color:var(--ink-soft);margin:.07rem 0 0;line-height:1.35;}
 
@@ -374,7 +377,7 @@
             </div></div>
             <div class="inc-item"><span class="inc-dot"></span><div>
               <p class="inc-title">Prescri&ccedil;&atilde;o m&eacute;dica</p>
-              <p class="inc-sub">Suplementa&ccedil;&atilde;o e tratamentos individualizados com base nos seus exames</p>
+              <p class="inc-sub">Indica o que voc&ecirc; precisa tomar e por qu&ecirc;. O custo dos produtos &eacute; pago separado.</p>
             </div></div>
             <div class="inc-item"><span class="inc-dot"></span><div>
               <p class="inc-title">Dieta baseada nos seus exames</p>
@@ -394,10 +397,17 @@
             </div></div>
           </div>
           <div class="not-includes">
-            <p class="not-inc-label">Não inclui</p>
-            <div class="not-inc-item"><span class="not-inc-x"></span><span class="not-inc-text">Plano de treino da academia</span></div>
-            <div class="not-inc-item"><span class="not-inc-x"></span><span class="not-inc-text">Custo dos suplementos e medicamentos (prescri&ccedil;&atilde;o inclusa)</span></div>
-            <div class="not-inc-item"><span class="not-inc-x"></span><span class="not-inc-text">Outros protocolos indicados pelo médico</span></div>
+            <p class="not-inc-label">N&atilde;o inclui</p>
+            <div class="inc-item"><span class="ninc-dot"></span><div>
+              <p class="inc-title" style="color:var(--ink-soft);">Plano de treino da academia</p>
+            </div></div>
+            <div class="inc-item"><span class="ninc-dot"></span><div>
+              <p class="inc-title" style="color:var(--ink-soft);">Custo de suplementos e medicamentos</p>
+              <p class="inc-sub">A prescri&ccedil;&atilde;o est&aacute; inclusa. Voc&ecirc; compra o que for indicado.</p>
+            </div></div>
+            <div class="inc-item"><span class="ninc-dot"></span><div>
+              <p class="inc-title" style="color:var(--ink-soft);">Outros protocolos m&eacute;dicos externos</p>
+            </div></div>
           </div>
         </section>
 
@@ -419,10 +429,7 @@
             </div>
           </div>
           <span class="cta-vaga-badge">&#127991; Apenas 5 vagas: R$&nbsp;600 de desconto</span>
-          <p class="cta-urgency-note">&#128197; Turma com in&iacute;cio em outubro. Inscri&ccedil;&otilde;es encerram em setembro ou ao preencher as 5 vagas.</p>
-          <div class="cta-urgency">
-            <p>Apenas 5 vagas com desconto. Ap&oacute;s o preenchimento, novas vagas ser&atilde;o abertas conforme disponibilidade.</p>
-          </div>
+          <p class="cta-urgency-note">&#128197; Inscri&ccedil;&otilde;es encerram em setembro ou ao preencher as 5 vagas. Turma inicia em outubro.</p>
           <a class="cta-btn" href="https://wa.me/5583986666488?text=Ol%C3%A1!%20Vi%20o%20Projeto%20Mulher%2035%2B%20e%20quero%20garantir%20minha%20vaga%20com%20desconto!" target="_blank" rel="noopener">
             💬 Quero começar agora
           </a>
