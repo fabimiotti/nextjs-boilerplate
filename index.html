@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="UTF-8">
-<title>Fabi Miotti — Apresentações</title>
+<title>Fabi Miotti</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   :root{
@@ -8,10 +8,10 @@
     --paper-soft:#FBF8F1;
     --ink:#2C2A22;
     --ink-soft:#736C58;
+    --ink-faint:#A39D89;
     --green:#3B4630;
     --green-deep:#2E3826;
-    --accent-f:#BD6B3B;
-    --accent-m:#7C8863;
+    --accent:#BD6B3B;
     --line:#DED2B8;
     --stage:#1E2318;
   }
@@ -19,59 +19,135 @@
   html,body{height:100%;margin:0;}
   body{
     min-height:100vh;
-    background:radial-gradient(ellipse 900px 600px at 50% -10%, #2B3222 0%, var(--stage) 55%);
+    background:radial-gradient(ellipse 900px 700px at 50% -5%, #2B3222 0%, var(--stage) 60%);
     color:var(--paper);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    padding:2.5rem 1rem;
+    display:flex;flex-direction:column;align-items:center;
+    padding:2.8rem 1.25rem 3rem;
   }
-  .header{text-align:center;margin-bottom:2.5rem;}
-  .header h1{font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;font-size:1.9rem;margin:0;color:var(--paper);}
-  .header p{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#A39D89;margin:.5rem 0 0;}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;max-width:900px;margin:0 auto;}
-  .card{background:var(--paper);border-radius:16px;padding:1.4rem 1.3rem;color:var(--ink);text-decoration:none;display:block;transition:transform .15s ease,box-shadow .15s ease;}
-  .card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.35);}
-  .tag{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.28rem .65rem;border-radius:999px;display:inline-block;margin-bottom:.75rem;}
-  .tag.fem{background:var(--accent-f);color:#fff;}
-  .tag.masc{background:var(--accent-m);color:#fff;}
-  .card h2{font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;font-size:1.05rem;color:var(--green-deep);margin:0 0 .3rem;}
-  .card p{font-size:.8rem;color:var(--ink-soft);margin:0;line-height:1.5;}
-  .arrow{float:right;color:var(--line);font-size:1.2rem;margin-top:.1rem;}
-  .footer{text-align:center;margin-top:2.5rem;font-size:.7rem;color:#736C58;letter-spacing:.05em;}
+
+  /* HEADER */
+  .profile{text-align:center;margin-bottom:2.5rem;}
+  .avatar{
+    width:84px;height:84px;border-radius:50%;
+    background:var(--green);border:3px solid #3B4630;
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 1rem;
+    font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+    font-size:2rem;color:var(--paper);letter-spacing:-.02em;
+    overflow:hidden;
+  }
+  .avatar img{width:100%;height:100%;object-fit:cover;}
+  .profile h1{
+    font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+    font-size:1.55rem;margin:0 0 .3rem;color:var(--paper);letter-spacing:-.01em;
+  }
+  .profile .tagline{
+    font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-faint);margin:0;
+  }
+
+  /* LINK GROUPS */
+  .links{width:100%;max-width:400px;display:flex;flex-direction:column;gap:1.1rem;}
+
+  .group{display:flex;flex-direction:column;gap:.45rem;}
+  .group-label{
+    font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);text-align:center;margin:0 0 .1rem;
+  }
+
+  /* PRIMARY BUTTON */
+  .btn-primary{
+    display:flex;align-items:center;justify-content:space-between;
+    background:var(--green);color:var(--paper);
+    border-radius:14px;padding:1rem 1.2rem;
+    text-decoration:none;
+    font-weight:600;font-size:1rem;
+    transition:background .14s ease,transform .12s ease;
+    border:1px solid #ffffff0d;
+  }
+  .btn-primary:hover{background:var(--green-deep);transform:translateY(-1px);}
+  .btn-primary .ico{font-size:1.1rem;flex:none;}
+  .btn-primary .lbl{flex:1;padding:0 .7rem;}
+  .btn-primary .lbl small{display:block;font-size:.73rem;font-weight:400;opacity:.72;margin-top:.1rem;}
+  .btn-primary .arr{color:#ffffff55;font-size:1.2rem;}
+
+  /* SECONDARY LINKS (fem/masc) */
+  .sub-links{display:flex;gap:.5rem;}
+  .btn-sub{
+    flex:1;display:flex;align-items:center;justify-content:center;gap:.45rem;
+    padding:.65rem .5rem;border-radius:11px;
+    text-decoration:none;font-size:.82rem;font-weight:600;
+    transition:opacity .14s ease,transform .12s ease;
+  }
+  .btn-sub:hover{opacity:.85;transform:translateY(-1px);}
+  .btn-sub.fem{background:#BD6B3B22;color:#D08F62;border:1px solid #BD6B3B44;}
+  .btn-sub.masc{background:#7C886322;color:#8E9B70;border:1px solid #7C886344;}
+  .btn-sub .dot{width:7px;height:7px;border-radius:50%;flex:none;}
+  .btn-sub.fem .dot{background:#BD6B3B;}
+  .btn-sub.masc .dot{background:#7C8863;}
+
+  /* DIVIDER */
+  .divider{width:40px;height:1px;background:var(--line);margin:.2rem auto;}
+
+  /* FOOTER */
+  .footer{margin-top:2.8rem;text-align:center;font-size:.68rem;color:#736C58;letter-spacing:.04em;line-height:1.7;}
 </style>
-<div class="header">
+
+<div class="profile">
+  <div class="avatar">FM</div>
   <h1>Fabi Miotti</h1>
-  <p>Personal Trainer · CREF 011353-G/RN</p>
+  <p class="tagline">Personal Trainer · CREF 011353-G/RN</p>
 </div>
-<div class="grid">
-  <a class="card" href="presencial-feminino.html">
-    <span class="tag fem">Feminino</span><span class="arrow">&#8250;</span>
-    <h2>Personal Presencial</h2>
-    <p>Acompanhamento individual ou em dupla. Aulas presenciais de 60 min.</p>
-  </a>
-  <a class="card" href="presencial-masculino.html">
-    <span class="tag masc">Masculino</span><span class="arrow">&#8250;</span>
-    <h2>Personal Presencial</h2>
-    <p>Acompanhamento individual ou em dupla. Aulas presenciais de 60 min.</p>
-  </a>
-  <a class="card" href="consultoria-online-feminino.html">
-    <span class="tag fem">Feminino</span><span class="arrow">&#8250;</span>
-    <h2>Consultoria Online</h2>
-    <p>Formatos Light e Premium. Treino individualizado onde você estiver.</p>
-  </a>
-  <a class="card" href="consultoria-online-masculino.html">
-    <span class="tag masc">Masculino</span><span class="arrow">&#8250;</span>
-    <h2>Consultoria Online</h2>
-    <p>Formatos Light e Premium. Treino individualizado onde você estiver.</p>
-  </a>
-  <a class="card" href="hibrido-feminino.html">
-    <span class="tag fem">Feminino</span><span class="arrow">&#8250;</span>
-    <h2>Híbrido</h2>
-    <p>Presencial + Online. Comece com técnica, siga com autonomia.</p>
-  </a>
-  <a class="card" href="hibrido-masculino.html">
-    <span class="tag masc">Masculino</span><span class="arrow">&#8250;</span>
-    <h2>Híbrido</h2>
-    <p>Presencial + Online. Comece com técnica, siga com autonomia.</p>
-  </a>
+
+<div class="links">
+
+  <!-- PRESENCIAL -->
+  <div class="group">
+    <p class="group-label">Personal Presencial</p>
+    <div class="sub-links">
+      <a class="btn-sub fem" href="presencial-feminino.html">
+        <span class="dot"></span>Feminino
+      </a>
+      <a class="btn-sub masc" href="presencial-masculino.html">
+        <span class="dot"></span>Masculino
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- HÍBRIDO -->
+  <div class="group">
+    <p class="group-label">Personal Híbrido</p>
+    <div class="sub-links">
+      <a class="btn-sub fem" href="hibrido-feminino.html">
+        <span class="dot"></span>Feminino
+      </a>
+      <a class="btn-sub masc" href="hibrido-masculino.html">
+        <span class="dot"></span>Masculino
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ONLINE -->
+  <div class="group">
+    <p class="group-label">Consultoria Online</p>
+    <div class="sub-links">
+      <a class="btn-sub fem" href="consultoria-online-feminino.html">
+        <span class="dot"></span>Feminino
+      </a>
+      <a class="btn-sub masc" href="consultoria-online-masculino.html">
+        <span class="dot"></span>Masculino
+      </a>
+    </div>
+  </div>
+
 </div>
-<div class="footer">fabianimiotti.com.br</div>
+
+<div class="footer">
+  Pipa · Rio Grande do Norte<br>
+  fabianimiotti.com.br
+</div>
