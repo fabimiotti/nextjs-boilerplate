@@ -97,7 +97,7 @@
 </div>
 <p class="hint">use as setas &larr; &rarr; , clique nas laterais do card ou arraste para navegar</p>
 <script>
-  const labels=["Fabi Miotti","Diferencial","Como funciona","Investimento","Fase Online","Pagamento"];
+  const labels=["Fabi Miotti","Diferencial","Como funciona","Investimento","Fase Online","Contato"];
   const track=document.getElementById('track'),dotsEl=document.getElementById('dots'),labelEl=document.getElementById('labelText'),counterEl=document.getElementById('counterText'),prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn'),total=labels.length;let index=0;
   for(let i=0;i<total;i++){const b=document.createElement('button');b.className='dot'+(i===0?' active':'');b.setAttribute('aria-label','Ir para slide '+(i+1));b.addEventListener('click',()=>goTo(i));dotsEl.appendChild(b);}
   function pad(n){return n<10?'0'+n:''+n;}
